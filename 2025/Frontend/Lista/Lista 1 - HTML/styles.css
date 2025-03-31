@@ -1,0 +1,25 @@
+.tabela{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.formulario{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.formulario>div{
+    padding: 2px;
+}
+
+#comment{
+    width: 200px;
+    height: 40px;
+    text-align: center;
+}
+
+main>div{
+    margin-top: 40px;
+}
