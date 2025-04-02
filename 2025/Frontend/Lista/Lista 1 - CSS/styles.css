@@ -3,6 +3,39 @@
     height: 100px;
 }
 
-.ex2{
+.ex3{
     color: red;
+}
+
+h1{
+    color: blue;
+    font-size: large; /* ex 5 */
+}
+
+h2{
+    font-size: medium; /* ex 5 */
+}
+
+h3{
+    font-size: small; /* ex 5 */
+}
+
+.ex4{
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+}
+
+.negrito{
+    font-weight: bold;
+}
+
+.ex7{
+    padding: 20px;
+}
+
+.ex8{
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 20%;
 }
