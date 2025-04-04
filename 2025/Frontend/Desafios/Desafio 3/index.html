@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="margens">
+        <input class="margens" type="text" id="nome" placeholder="Digite seu nome" oninput="this.value = this.value.replace(/[^A-Za-zÀ-ÿ ]/g, '')">
+        <input class="margens" type="text" id="idade" placeholder="Digite sua idade">
+        <button id="adicionar" onclick="adicionarPessoa()">Adicionar</button>
+    </div>
+    <div class="margens">
+        <input class="margens" type="text" id="nome2" placeholder="Digite o nome para verificar">
+        <button class="margens" id="verificar" onclick="listarPessoas()">Verificar</button>
+        <button id="remover" onclick="removerPessoa()">Remover</button> 
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

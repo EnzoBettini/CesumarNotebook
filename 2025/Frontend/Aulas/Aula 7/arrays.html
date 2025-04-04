@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nomes= ["Lucas", "João", "Maria", "Ana", "Pedro"];
+        let numero= [1, 2, 3, 4, 5];
+        let numerosDecimais= [1.5, 2.5, 3.5, 4.5, 5.5];
+        console.log(nomes);
+
+        console.log("-----------");
+
+        nomes.push("Carlos");
+        nomes.push(1); // push adiciona um elemento ao final do array
+        nomes.unshift("Lucas"); // unshift adiciona um elemento ao início do array
+
+        console.log("-----------");
+
+        console.log(typeof nomes[nomes.length - 1]); // Isso imprimirá "number"
+
+        console.log("-----------");
+
+        console.log(nomes.slice(1, 2)); // slice retorna uma cópia de uma parte do array
+
+    </script>
+</body>
+</html>
