@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .botao{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="alerta()">Clique aqui</button>
+    <button class="botao">Clique Aqui</button>
+
+    <script>
+        function alerta(){
+            alert("Botão Clicado!");
+        }
+
+        let botao = document.querySelector(".botao");
+
+        botao.addEventListener("click", function(){
+            alert("Botão Clicado!");
+        });
+    </script>
+</body>
+</html>

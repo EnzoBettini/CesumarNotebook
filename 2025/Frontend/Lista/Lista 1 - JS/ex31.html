@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="alterar">Sou um texto sem alteração</p>
+    <button class="botao">Clique para alterar</button>
+
+    <p id="alterar2">Sou um texto sem alteração</p>
+    <button class="botao2">Clique para alterar</button>
+    
+    <script>
+        let alterar = document.getElementById("alterar");
+
+        let botao = document.querySelectorAll(".botao");
+
+        botao.forEach(function(botaos) {
+            botaos.addEventListener("click", function() { // botaos kkkkkkkkkkkkkk
+                alterar.textContent = "Sou um texto alterado";
+            });
+        });
+
+        let alterar2 = document.getElementById("alterar2");
+
+        let botao2 = document.querySelector(".botao2");
+
+        botao2.addEventListener("click", function() { 
+            alterar2.textContent = "Sou um texto alterado";
+        });
+    </script>
+</body>
+</html>
