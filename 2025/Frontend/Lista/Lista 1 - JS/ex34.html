@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="nome" placeholder="Digite seu nome">
+        <p id="display"></p>
+        <button id="buttonClick">Mostrar nome</button>
+    </div>
+
+    <script>
+        let display = document.getElementById("display");
+
+        let botao = document.getElementById("buttonClick");
+
+        function mostrarNome(){
+            let texto = document.getElementById("nome").value;
+            display.textContent= texto;
+        }
+
+        botao.addEventListener("click", function(){
+            mostrarNome();
+        })
+    </script>
+</body>
+</html>
