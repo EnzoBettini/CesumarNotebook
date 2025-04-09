@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="toggleTexto()">Mostrar/Esconder</button>
+    <p id="meuTexto" style="display:none;">Olá, esse é o texto!</p>
+
+    <script>
+        function toggleTexto() {
+            var texto = document.getElementById("meuTexto");
+            texto.style.display = texto.style.display === "none" ? "block" : "none";
+        }
+
+        //condição ? valor_se_verdadeiro : valor_se_falso
+    </script>
+</body>
+</html>
