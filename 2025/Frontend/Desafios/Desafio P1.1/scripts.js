@@ -24,6 +24,17 @@ function adicionarProduto(){
         "<td>" + qntProduto.value + "</td>" +
     "</tr>";
 
+ /*
+ let novoHtml = `
+    <tr id='produto-${idProduto}'>
+        <td>${idProduto}</td>
+        <td>${nomeProduto.value}</td>
+        <td>${valorProduto.value}</td>
+        <td>${qntProduto.value}</td>
+    </tr>
+`;
+*/
+
     display.querySelector("tbody").innerHTML += novoHtml;
 
    
