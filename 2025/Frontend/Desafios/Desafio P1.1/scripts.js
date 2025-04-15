@@ -8,6 +8,8 @@ let removerProdutoNome=document.getElementById("removerProdutoNome");
 let listaProduto=[];
 let idProduto=0;
 
+ atualizarEstadoBotaoRemover()
+
 function adicionarProduto(){
    
     idProduto++;
@@ -28,7 +30,6 @@ function adicionarProduto(){
     nomeProduto.value = "";
     valorProduto.value = "";
     qntProduto.value = "";
-    atualizarEstadoBotaoRemover()
 }
 
 function removerProduto() {
