@@ -9,33 +9,48 @@ let listaProduto=[];
 let idProduto=0;
 
 function adicionarProduto(){
-    listaProduto.push({id: (idProduto+1), nome: nomeProduto.value, valor: valorProduto.value, quantidade: qntProduto.value});
-    let novoHtml= 
-    "<tr>"+
-        "<td>"+ (idProduto+1) + "</td>"+
-        "<td>"+ nomeProduto.value + "</td>"+
-        "<td>"+ valorProduto.value + "</td>"+
-        "<td>"+ qntProduto.value + "</td>"+
-    "<tr>";
+   
+    idProduto++;
 
-    display.querySelector("tbody").innerHTML+=novoHtml;
+    listaProduto.push({id: idProduto, nome: nomeProduto.value, valor: valorProduto.value, quantidade: qntProduto.value});
+    
+    let novoHtml = 
+    "<tr id='produto-" + idProduto + "'>" +  
+        "<td>" + idProduto + "</td>" +
+        "<td>" + nomeProduto.value + "</td>" +
+        "<td>" + valorProduto.value + "</td>" +
+        "<td>" + qntProduto.value + "</td>" +
+    "</tr>";
 
-    nomeProduto.value="";
-    valorProduto.value="";
-    qntProduto.value="";
-    return;
+    display.querySelector("tbody").innerHTML += novoHtml;
+
+   
+    nomeProduto.value = "";
+    valorProduto.value = "";
+    qntProduto.value = "";
+    atualizarEstadoBotaoRemover()
 }
 
-function removerProduto(){
-    listaProduto.forEach((produto, index)=>{
-        if(produto.nome===removerProdutoNome.value){
+function removerProduto() {
+    listaProduto.forEach((produto, index) => {
+        if(produto.nome === removerProdutoNome.value){
             listaProduto.splice(index, 1);
-            let remocao =display.querySelectorAll("tr")
-            remocao[index+1].remove();
-            removerProdutoNome.value=""
+            let linha = display.querySelector(`#produto-${produto.id}`);
+            if (linha) linha.remove(); 
+            removerProdutoNome.value = "";
             return;
         }
-    })
+    });
+}
+
+function atualizarEstadoBotaoRemover() {
+    if (listaProduto.length === 0) {
+        removerProdutoNome.disabled = true;
+        botaoRm.disabled = true;
+    } else {
+        removerProdutoNome.disabled = false;
+        botaoRm.disabled = false;
+    }
 }
 
 
