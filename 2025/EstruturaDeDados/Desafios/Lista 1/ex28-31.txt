@@ -1,0 +1,16 @@
+28- Ponteiro de ponteiro é um termo que se refere a um ponteiro que aponta para outro ponteiro, como uma matriz, onde há uma "linha" de ponteiros apontando para outro ponteiro como se fossem "colunas"
+
+29-
+a- endereço da varíavel x
+b- endereço da variavel x
+c- endereço da variavel x
+d- valor de x
+e- valor de x e endereco de ptr1
+e- valor de x e endereco de ptr2
+
+30-Ponteiros evitam a cópia de grandes blocos de dados e permitem uma manipulação eficiente da memória, por exemplo na manipulação de arrays ou matrizes muito grandes, onde podemos passar um ponteiro diretamente para o inicio do array permitindo que a função acesse diretamente os dados na memoria
+
+exemplo biblioteca-> muito mais eficiente buscar diretamente pelo indice do livro na estante do que pegar a estante inteira
+
+31-Sim é possivel, pois com ponteiros podemos passá-los por referência para uma função permitindo que ela "retorne" vários resultados através dos parâmetros
+uma variavel normal passada para uma função (passada por valor) não afeta o valor original, apenas cria uma cópia da função original

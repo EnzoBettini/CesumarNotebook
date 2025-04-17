@@ -15,12 +15,12 @@ int main()
     printf("\n%d\n", sizeof(palavras));
     for (int i = 0; i < 4; i++)
     {
-        printf("\n%d\n", sizeof(palavras[i]));
+        printf("\n%d\n", sizeof(*(palavras + i)));
     }
-    printf("\n%p\n", &palavras);
+    printf("\n%p\n", &*palavras);
     for (int i = 0; i < 4; i++)
     {
-        printf("\n%p\n", &palavras[i]);
+        printf("\n%p\n", &*(palavras + i));
     }
 
     getch();

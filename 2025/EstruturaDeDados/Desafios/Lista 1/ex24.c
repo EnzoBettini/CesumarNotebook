@@ -3,25 +3,26 @@
 #include <string.h>
 #include <conio.h>
 
+void mostrar(int *vet)
+{
+    int i;
+    for (i = 0; i < 5; i++)
+    {
+        printf("numero %d: %d\n", i + 1, *(vet + i));
+    }
+}
+
 int main()
 {
-    char palavras[4][10];
+    int numeros[5];
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 5; i++)
     {
-        printf("digite a palavra %d\n", i + 1);
-        fgets(palavras[i], sizeof(palavras[i]), stdin); // caso queira o tamanho da palavra sem o caracter nulo seria strlen(palavras[i])
+        printf("digite o numero %d: \n", i + 1);
+        scanf("%d", &numeros[i]);
     }
-    printf("\n%d\n", sizeof(palavras));
-    for (int i = 0; i < 4; i++)
-    {
-        printf("\n%d\n", sizeof(palavras[i]));
-    }
-    printf("\n%p\n", &palavras);
-    for (int i = 0; i < 4; i++)
-    {
-        printf("\n%p\n", &palavras[i]);
-    }
+
+    mostrar(numeros);
 
     getch();
     return 0;
