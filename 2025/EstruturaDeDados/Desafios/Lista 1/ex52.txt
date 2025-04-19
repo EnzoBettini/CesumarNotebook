@@ -1,0 +1,1 @@
+52-Pode ocorrer a realocação do bloco de memoria, onde ele estava em um lugar depois é movido para outro
