@@ -1,0 +1,24 @@
+58- O programa primeiramente aloca a memoria necessária par ao ponteiro de ponteiro, depois atribui números de 0-100 de forma aleatória para cada elemento da matriz e os mostra na tela, liberando a memória no final, que apresenta problemas nessa liberação, pois deveria ser liberado primeiramente as colunas depois as linhas da matriz
+for(i=0; i<4; i+=){
+    free(*(mat+i));
+}
+free(mat);
+
+59- para liberamos fariamos
+for (int i=0; i<6; i++){
+    for (int j=0; j<4; j++){
+        free(mat[i][j]);
+    }
+} // libera cada string de 51
+
+for (int i=0; i<6; i++){
+    free(mat[i]);
+} // libera cada coluna
+
+free(mat); //libera a matriz de modo geral
+
+60-o valor seria 12, pois é a soma de 4 do int + 4 do ponteiro pois ele esta pedindo o sizeof do que estamos apontando com *ptr
+
+61-O tamanho não depende do que aponta mais sim do tipo da arquitetura pois para endereçamento de memoria 32 bits utiliza apenas 4 bytes e 64 bits utiliza 8 bytes
+
+62-
