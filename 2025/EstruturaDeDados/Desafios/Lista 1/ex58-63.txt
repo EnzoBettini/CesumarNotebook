@@ -23,4 +23,4 @@ free(mat); //libera a matriz de modo geral
 
 62-Professor travei nessa, mas acredito que a criação das variaveis globais não seja correto, acho que deveria ser declarado diretamente dentro das funções e o meu programa não roda sem a biblioteca conio.h, que não foi incluida
 
-63-ele pega uma variavel temporaria de tamanho máximo 50, aloca memória ao tamanho real da variável +1 (caracter nulo), depois copia essa variável temporaria para o espaço alocado
+63-ele pega uma variavel temporaria de tamanho máximo 50, aloca memória ao tamanho real da variável +1 (caracter nulo), depois copia essa variável temporaria para o espaço alocado. o laço de repetição esta repetindo infinitamente tambem

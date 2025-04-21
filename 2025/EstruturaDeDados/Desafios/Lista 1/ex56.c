@@ -30,14 +30,12 @@ int main()
     printf("\nEndereço do vetor principal: %p\n", *nomes);
     for(i = 0; i < 5; i++) {
         printf("Nome %d: %s\n", i + 1, nomes[i]);
-        printf("Endereço de memória do nome %d: %p\n\n", i + 1, *nomes[i]);
+        printf("Endereço de memória do nome %d: %p\n\n", i + 1, (void*)nomes[i]);
     }
 
     for(i = 0; i < 5; i++) {
         free(nomes[i]);
     }
-
-    free(nomes);
 
     return 0;
 }
