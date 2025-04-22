@@ -1,277 +1,198 @@
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <string.h>
-// #include <locale.h>
-// #include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-// /* 
-// Professor o exercício já era grande portanto na hora de alocar eu não fiz a parte dos ifs pra verificar se foi possível alocar ou não (if(vet) {])
-// */
+typedef struct {
+    int numeroPessoa;
+    char *nome;
+    char *endereco;
+    char *cidade;
+    char *sexo;
+    int cpf;
+    int rg;
+    char *email;
+} cadastroPessoa;
 
-// //----------STRUCT----------
-// typedef struct {
-//     int idkey;
-//    char *nome;
-//    char *cidade;
-//    char *endereco;
-//    char sexo;
-//    char *cpf;
-//    char *rg;
-//    char *email;
-// } Pessoa;
-// //----------STRUCT----------
+void cadastrarPessoa(cadastroPessoa *pessoaCadastro, int *id, int qnt) {
+    char tmpChar[100];
+    int tmpNum;
 
-// //----------VAR GLOBAIS----------
-// int qnt = 0, i; 
-// Pessoa *pessoa;
-// //----------VAR GLOBAIS----------
+    for (int j = 0; j < qnt; j++) {
+        int i = *id;
 
-// //----------FUNÇÕES----------
-// void limpa();
-// void adicionar();
-// void editar();
-// void remover();
-// void consulta();
-// void menu();
-// void erroRemover();
-// void continuaRemover();
-// //----------FUNÇÕES----------
+        printf("Digite o nome da pessoa: ");
+        fgets(tmpChar, sizeof(tmpChar), stdin);
+        fflush(stdin);
+        pessoaCadastro[i].nome = malloc(strlen(tmpChar) + 1);
+        strcpy(pessoaCadastro[i].nome, tmpChar);
 
-// //----------MAIN----------
-// int main() {
-//     
-//     pessoa = malloc(1 * sizeof(Pessoa));
-//     
-//    menu();
-//    for (i = 0; i < qnt; i++) {
-//        free(pessoa[i].nome);
-//        free(pessoa[i].cidade);
-//        free(pessoa[i].endereco);
-//        free(pessoa[i].email);
-//    }
-//    free(pessoa);
-//    return 0;
-// }
-// //----------MAIN----------
+        printf("Digite o endereco da pessoa: ");
+        fgets(tmpChar, sizeof(tmpChar), stdin);
+        fflush(stdin);
+        pessoaCadastro[i].endereco = malloc(strlen(tmpChar) + 1);
+        strcpy(pessoaCadastro[i].endereco, tmpChar);
 
-// void menu() { 
-//     limpa();
-//    int qtd = 0;             
-//    int op;
+        printf("Digite a cidade da pessoa: ");
+        fgets(tmpChar, sizeof(tmpChar), stdin);
+        fflush(stdin);
+        pessoaCadastro[i].cidade = malloc(strlen(tmpChar) + 1);
+        strcpy(pessoaCadastro[i].cidade, tmpChar);
 
-//    do {
-//        printf("\n--------------- Cadastro de Pessoas ---------------\n");
-//        printf("1 - Inclusao\n");
-//        printf("2 - Alterar\n");
-//        printf("3 - Exclusao\n");
-//        printf("4 - Consulta\n");
-//        printf("0 - Sair\n");
-//        printf("--------------- Cadastro de Pessoas ---------------\n");
-//        printf("Escolha uma opcao: ");
-//        scanf("%d", &op);
-//        getchar();
+        printf("Digite o sexo da pessoa: ");
+        fgets(tmpChar, sizeof(tmpChar), stdin);
+        fflush(stdin);
+        pessoaCadastro[i].sexo = malloc(strlen(tmpChar) + 1);
+        strcpy(pessoaCadastro[i].sexo, tmpChar);
 
-//        switch(op) {
-//            case 1:
-//                adicionar();
-//                break;
-//            case 2:
-//                editar();
-//                break;
-//            case 3:
-//                remover();
-//                break;
-//            case 4:
-//                consulta();
-//                break;
-//            case 0:
-//                printf("Saindo...\n");
-//                break;
-//            default:
-//                printf("Opção inválida!\n");
-//        }
-//    } while(op != 0);
-// }
+        printf("Digite o CPF da pessoa: ");
+        scanf("%d", &tmpNum);
+        fflush(stdin);
+        pessoaCadastro[i].cpf = tmpNum;
 
-// void limpa() {
-//     system("cls");
-// }
+        printf("Digite o RG da pessoa: ");
+        scanf("%d", &tmpNum);
+        fflush(stdin);
+        pessoaCadastro[i].rg = tmpNum;
 
-// //----------ADICIONAR----------
-// void adicionar() {
-//   char tmp[250]; 
-//   int tam;
-  
-//   pessoa = realloc(pessoa, (qnt + 1) * sizeof(Pessoa));
-//   fflush(stdin);
-//   limpa();
-//   printf("--------------- Cadastro de Pessoas ---------------\n");
-//   printf("Digite o nome:");
-//   gets(tmp);
-//   tam = strlen(tmp);
-//   pessoa[qnt].idkey = qnt;
-//   pessoa[qnt].nome = malloc((tam + 1) * sizeof(char));
-//   strcpy(pessoa[qnt].nome, tmp); 
-//   fflush(stdin);
-//   printf("Digite seu endereço:");
-//   gets(tmp);
-//   tam = strlen(tmp);
-//   pessoa[qnt].endereco = malloc((tam + 1) * sizeof(char));
-//   strcpy(pessoa[qnt].endereco, tmp); 
-//   fflush(stdin);
-  
-//   printf("Digite sua cidade:");
-//   gets(tmp);
-//   tam = strlen(tmp);
-//   pessoa[qnt].cidade = malloc((tam + 1) * sizeof(char));
-//   strcpy(pessoa[qnt].cidade, tmp); 
-//   fflush(stdin);
-  
-//   char sexoE;
-//     do {
-//         printf("Digite o Sexo (M ou F): ");
-//         scanf(" %c", &sexoE);
-//           fflush(stdin);
-//     } while (sexoE != 'M' && sexoE != 'F');
+        printf("Digite o e-mail da pessoa: ");
+        fgets(tmpChar, sizeof(tmpChar), stdin);
+        fflush(stdin);
+        pessoaCadastro[i].email = malloc(strlen(tmpChar) + 1);
+        strcpy(pessoaCadastro[i].email, tmpChar);
 
-//     pessoa[qnt].sexo = sexoE;
+        pessoaCadastro[i].numeroPessoa = i;
 
-  
-//   printf("Digite seu CPF:");
-//   gets(tmp);
-//   tam = strlen(tmp);
-//   pessoa[qnt].cpf = malloc((tam + 1) * sizeof(char));
-//   strcpy(pessoa[qnt].cpf, tmp); 
-//   fflush(stdin);
-  
-//   printf("Digite seu RG:");
-//   gets(tmp);
-//   tam = strlen(tmp);
-//   pessoa[qnt].rg = malloc((tam + 1) * sizeof(char));
-//   strcpy(pessoa[qnt].rg, tmp); 
-//   fflush(stdin);
-  
-//   printf("Digite seu email:");
-//   gets(tmp);
-//   tam = strlen(tmp);
-//   pessoa[qnt].email = malloc((tam + 1) * sizeof(char));
-//   strcpy(pessoa[qnt].email, tmp); 
-//   fflush(stdin);
-//   printf("--------------- Cadastro de Pessoas ---------------\n");
-  
-//     printf("IDKEY: %d | %s foi inserido com Sucesso! Aperte ENTER para voltar pro MENU!", pessoa[qnt].idkey, pessoa[qnt].nome);
-//     getchar();
-//     qnt++;
-//     limpa();
-//     fflush(stdin);
-// }    
+        (*id)++;
+    }
+}
 
-// void editar() {
-//     int idDigitado, tam;
-//     char tmp[250], sexoE;
-//    limpa();
-//    printf("--------------- Editar Pessoas ---------------\n");
-//    for(i = 0; i < qnt; i++)
-//        printf("IDKEY: %d | Nome: %s\n", pessoa[i].idkey, pessoa[i].nome);
-//    printf("Selecione o ID que deseja editar:");
-//    scanf("%d", &idDigitado);
-//    fflush(stdin);
-   
-//    printf("Novo Nome: ");
-//    gets(tmp);
-//    tam = strlen(tmp);
-//    pessoa[idDigitado].nome = realloc(pessoa[idDigitado].nome, (tam + 1) * sizeof(char));
-//    strcpy(pessoa[idDigitado].nome, tmp);
-//    printf("Novo Cidade: ");
-//    gets(tmp);
-//    tam = strlen(tmp);
-//    pessoa[idDigitado].cidade = realloc(pessoa[idDigitado].cidade, (tam + 1) * sizeof(char));
-//    strcpy(pessoa[idDigitado].cidade, tmp);
-//    printf("Novo Endereco: ");
-//    gets(tmp);
-//    tam = strlen(tmp);
-//    pessoa[idDigitado].endereco = realloc(pessoa[idDigitado].endereco, (tam + 1) * sizeof(char));
-//    strcpy(pessoa[idDigitado].endereco, tmp);
-//     do {
-//         printf("Novo Sexo (M ou F): ");
-//         scanf(" %c", &sexoE);
-//           fflush(stdin);
-//     } while (sexoE != 'M' && sexoE != 'F');
+void excluirPessoa(cadastroPessoa *pessoaCadastro, int id) {
+    free(pessoaCadastro[id].nome);
+    free(pessoaCadastro[id].endereco);
+    free(pessoaCadastro[id].cidade);
+    free(pessoaCadastro[id].sexo);
+    free(pessoaCadastro[id].email);
 
-//     pessoa[idDigitado].sexo = sexoE;
-//    printf("Novo CPF: ");
-//    gets(tmp);
-//    tam = strlen(tmp);
-//    pessoa[idDigitado].cpf = realloc(pessoa[idDigitado].cpf, (tam + 1) * sizeof(char));
-//    strcpy(pessoa[idDigitado].cpf, tmp);
-//    printf("Novo RG: ");
-//    gets(tmp);
-//    tam = strlen(tmp);
-//    pessoa[idDigitado].rg = realloc(pessoa[idDigitado].rg, (tam + 1) * sizeof(char));
-//    strcpy(pessoa[idDigitado].rg, tmp);
-//    printf("Novo EMAIL: ");
-//    gets(tmp);
-//    tam = strlen(tmp);
-//    pessoa[idDigitado].email = realloc(pessoa[idDigitado].email, (tam + 1) * sizeof(char));
-//    strcpy(pessoa[idDigitado].email, tmp);
-//     printf("--------------- Editar Pessoas ---------------\n");
-//     printf("IDKEY: %d | Nome: %s foi ALTERADO com SUCESSO\n--APERTE ENTER PARA VOLTAR AO MENU--", pessoa[idDigitado].idkey, pessoa[idDigitado].nome);
-//     getchar();
-//     limpa();
-// }
+    pessoaCadastro[id].nome = NULL;
+}
 
-// void erroRemover() {
-//     printf("--------------- ERROR ---------------\n");
-//     printf("O ID INSERIDO NÃO EXISTE NO SISTEMA\n");
-//     printf("PARA VOLTAR AO MENU INICIAR APERTE ENTER");
-//    printf("--------------- ERROR ---------------\n");
-//    getch()
-//    limpa();
-// }
+void editarPessoa(cadastroPessoa *pessoaCadastro, int id) {
+    char tmpChar[100];
+    int tmpNum;
 
-// void continuaRemover() {
-//     free(pessoa[idRemover].nome);
-//    free(pessoa[idRemover].cidade);
-//    free(pessoa[idRemover].endereco);
-//    free(pessoa[idRemover].email);
-   
-//    for(i = idRemover; i < qnt-1; i++) {
-//        pessoa[i] = pessoa[i+1];
-//     }
-//     
-//     qnt--;
-//     pessoa = realloc(pessoa, qnt*sizeof(Pessoa));
-// }
+    free(pessoaCadastro[id].nome);
+    free(pessoaCadastro[id].endereco);
+    free(pessoaCadastro[id].cidade);
+    free(pessoaCadastro[id].sexo);
+    free(pessoaCadastro[id].email);
 
-// void remover() {
-//    limpa();
-//    int idRemover;
-//    printf("--------------- Remover Pessoas ---------------\n");
-//    for(i = 0; i < qnt; i++)
-//        printf("IDKEY: %d | Nome: %s\n", pessoa[i].idkey, pessoa[i].nome);
-//    printf("--------------- Remover Pessoas ---------------\n");
-//    printf("Selecione o ID que deseja remover:");
-//    scanf("%d", &idRemover);
-   
-//    idRemover < 0 || idRemover > qnt ? erroRemover() : continuaRemover();
+    printf("Digite o nome da pessoa: ");
+    fgets(tmpChar, sizeof(tmpChar), stdin);
+    fflush(stdin);
+    pessoaCadastro[id].nome = malloc(strlen(tmpChar) + 1);
+    strcpy(pessoaCadastro[id].nome, tmpChar);
 
-// }
+    printf("Digite o endereco da pessoa: ");
+    fgets(tmpChar, sizeof(tmpChar), stdin);
+    fflush(stdin);
+    pessoaCadastro[id].endereco = malloc(strlen(tmpChar) + 1);
+    strcpy(pessoaCadastro[id].endereco, tmpChar);
 
-// void consulta() {
-//     limpa();
-//    for(i = 0; i < qnt; i++) {
-//        printf("--------------- Lista de Pessoas ---------------\n");
-//        printf("Idkey: %d\n", pessoa[i].idkey);
-//        printf("Nome: %s\n", pessoa[i].nome);
-//        printf("Endereco: %s\n", pessoa[i].endereco);
-//        printf("Cidade: %s\n", pessoa[i].cidade);
-//        pessoa[i].sexo == 'F' ? printf("Sexo: Feminino\n") : printf("Sexo: Masculino\n");
-//        printf("CPF: %s\n", pessoa[i].cpf);
-//        printf("RG: %s\n", pessoa[i].rg);
-//        printf("Email: %s\n", pessoa[i].email);
-//         printf("--------------- Lista de Pessoas ---------------\n");
-//         printf("\n ...PROXIMO...\n");
-//         getchar();
-//     }
-//     limpa();
-// }
+    printf("Digite a cidade da pessoa: ");
+    fgets(tmpChar, sizeof(tmpChar), stdin);
+    fflush(stdin);
+    pessoaCadastro[id].cidade = malloc(strlen(tmpChar) + 1);
+    strcpy(pessoaCadastro[id].cidade, tmpChar);
+
+    printf("Digite o sexo da pessoa: ");
+    fgets(tmpChar, sizeof(tmpChar), stdin);
+    fflush(stdin);
+    pessoaCadastro[id].sexo = malloc(strlen(tmpChar) + 1);
+    strcpy(pessoaCadastro[id].sexo, tmpChar);
+
+    printf("Digite o CPF da pessoa: ");
+    scanf("%d", &tmpNum);
+    fflush(stdin);
+    pessoaCadastro[id].cpf = tmpNum;
+
+    printf("Digite o RG da pessoa: ");
+    scanf("%d", &tmpNum);
+    fflush(stdin);
+    pessoaCadastro[id].rg = tmpNum;
+
+    printf("Digite o e-mail da pessoa: ");
+    fgets(tmpChar, sizeof(tmpChar), stdin);
+    fflush(stdin);
+    pessoaCadastro[id].email = malloc(strlen(tmpChar) + 1);
+    strcpy(pessoaCadastro[id].email, tmpChar);
+}
+
+void consultarRegistros(cadastroPessoa *pessoaCadastro, int total) {
+    for (int i = 0; i < total; i++) {
+        if (pessoaCadastro[i].nome != NULL) {
+            printf("\nID: %d", pessoaCadastro[i].numeroPessoa);
+            printf("Nome: %s", pessoaCadastro[i].nome);
+            printf("Endereco: %s", pessoaCadastro[i].endereco);
+            printf("Cidade: %s", pessoaCadastro[i].cidade);
+            printf("Sexo: %s", pessoaCadastro[i].sexo);
+            printf("CPF: %d\n", pessoaCadastro[i].cpf);
+            printf("RG: %d\n", pessoaCadastro[i].rg);
+            printf("Email: %s\n", pessoaCadastro[i].email);
+        }
+    }
+}
+
+int main() {
+    cadastroPessoa *pessoa = NULL;
+    int contador = 0;
+    int capacidade = 0;
+    int opcao;
+
+    do {
+        printf("\n 1 - Adicionar\n 2 - Excluir\n 3 - Editar\n 4 - Consultar\n 0 - Sair\n Opcao: ");
+        scanf("%d", &opcao);
+        fflush(stdin);
+
+        switch (opcao) {
+            case 1:
+                if (contador >= capacidade) {
+                    capacidade += 5;
+                    pessoa = realloc(pessoa, capacidade * sizeof(cadastroPessoa));
+                }
+                cadastrarPessoa(pessoa, &contador, 1);
+                break;
+            case 2:
+                printf("Digite o ID da pessoa para excluir: ");
+                int idDel;
+                scanf("%d", &idDel);
+                fflush(stdin);
+                excluirPessoa(pessoa, idDel);
+                break;
+            case 3:
+                printf("Digite o ID da pessoa para editar: ");
+                int idEdit;
+                scanf("%d", &idEdit);
+                fflush(stdin);
+                editarPessoa(pessoa, idEdit);
+                break;
+            case 4:
+                consultarRegistros(pessoa, contador);
+                break;
+        }
+    } while (opcao != 0);
+
+    for (int i = 0; i < contador; i++) {
+        if (pessoa[i].nome != NULL) {
+            free(pessoa[i].nome);
+            free(pessoa[i].endereco);
+            free(pessoa[i].cidade);
+            free(pessoa[i].sexo);
+            free(pessoa[i].email);
+        }
+    }
+    free(pessoa);
+
+    return 0;
+}
+
+//PROFESSOR USEI O CHAT PARA FORMATAR ESSE CÓDIGO, TAVA MUITO GRANDE E EU ESTAVA ME PERDENDO
