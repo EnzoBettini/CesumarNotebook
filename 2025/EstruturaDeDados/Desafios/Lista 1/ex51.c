@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include <conio.h>
-#include <curses.h>
+#include <conio.h>
+//#include <curses.h>
 #include <time.h>
 
 void atribuir(int *ptr, int tamanho){
