@@ -1,3 +1,9 @@
+<script>
+export default {
+  props: ['seletor']
+}
+</script>
+
 <template>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
@@ -7,8 +13,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Produtos</a>
-        <a class="nav-link" href="#">Clientes</a>
+        <a
+          class="nav-link"
+          :class="{ active: seletor === '1' }"
+          href="#"
+          @click.prevent="$emit('mudar-seletor', '1')"
+        >
+          Produtos
+        </a>
+
+        <a
+          class="nav-link"
+          :class="{ active: seletor === '2' }"
+          href="#"
+          @click.prevent="$emit('mudar-seletor', '2')"
+        >
+          Clientes
+        </a>
       </div>
     </div>
   </div>
