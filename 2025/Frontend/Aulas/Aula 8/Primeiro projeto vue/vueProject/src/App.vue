@@ -10,13 +10,7 @@ export default {
 </script>
 
 <template>
-  {{ nome }}
-  <input v-model="senha" />
-  <input v-model="confirma" style="margin-left: 20px" />
 
-  <div v-if="senha != confirma ">
-    <h1>as senhas são diferentes</h1>
-  </div>
 </template>
 
 <style scoped>
