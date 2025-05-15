@@ -1,0 +1,1 @@
+<script>import navbar from './components/navbar.vue'export default{ data(){ return{}}}</script><template></template><style scoped></style>
