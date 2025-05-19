@@ -12,7 +12,3 @@ const seletor = ref('cliente')
   <cliente v-if="seletor === 'cliente'" />
   <produto v-if="seletor === 'produto'" />
 </template>
-
-<style>
-/* seu estilo aqui */
-</style>
