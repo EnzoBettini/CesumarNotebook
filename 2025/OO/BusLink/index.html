@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusLink - Maringá Aprimorado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            /* Azul primário mais intenso */
+            --primary-color-light: #007bff;
+            /* Tom mais claro do azul primário */
+            --secondary-color: #218838;
+            /* Verde para sucesso/confirmação (escurecido) */
+            --accent-color: #ff9900;
+            /* Laranja vibrante para CTAs */
+            --accent-color-darker: #e68a00;
+            --text-color: #212529;
+            --text-color-light: #495057;
+            --bg-color: #eef1f5;
+            /* Fundo geral um pouco mais azulado/frio */
+            --card-bg-color: #ffffff;
+            --border-color: #ced4da;
+            --tab-bar-height: 65px;
+            --danger-color: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding-bottom: var(--tab-bar-height);
+            overscroll-behavior-y: contain;
+        }
+
+        .app-header {
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-color-light) 100%);
+            color: white;
+            padding: 18px 20px;
+            /* Aumentado padding */
+            text-align: center;
+            font-size: 1.3em;
+            /* Aumentado fonte */
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #app-content {
+            padding: 0px;
+        }
+
+        .page {
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.4s ease-in-out;
+            /* Animação um pouco mais longa */
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            /* Aumentado translateY */
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Estilos do Dashboard (Início) */
+        .dashboard-saldo {
+            background: linear-gradient(135deg, var(--primary-color-light) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 30px 25px;
+            /* Aumentado padding */
+            border-radius: 16px;
+            /* Aumentado radius */
+            text-align: center;
+            margin-bottom: 30px;
+            /* Aumentado margin */
+            box-shadow: 0 6px 20px rgba(0, 86, 179, 0.3);
+            /* Sombra mais pronunciada */
+        }
+
+        .dashboard-saldo h2 {
+            font-size: 1.1em;
+            /* Aumentado fonte */
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 10px;
+        }
+
+        .dashboard-saldo .saldo-valor {
+            font-size: 2.8em;
+            /* Aumentado fonte */
+            font-weight: 700;
+        }
+
+        .dashboard-saldo .saldo-valor #saldo-atual-valor {
+            /* Span para o valor real */
+            color: #fff;
+        }
+
+        .dashboard-saldo .saldo-unidade {
+            /* Span para "R$" */
+            font-size: 0.6em;
+            /* Menor */
+            opacity: 0.8;
+            margin-right: 2px;
+            position: relative;
+            top: -0.5em;
+        }
+
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            /* Aumentado minmax */
+            gap: 18px;
+            /* Aumentado gap */
+        }
+
+        .action-button {
+            background-color: var(--card-bg-color);
+            color: var(--primary-color);
+            padding: 25px 15px;
+            /* Aumentado padding */
+            border-radius: 12px;
+            /* Aumentado radius */
+            text-align: center;
+            cursor: pointer;
+            font-size: 1em;
+            /* Aumentado fonte */
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-button:hover {
+            transform: translateY(-4px);
+            /* Aumentado translateY */
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .action-button i {
+            font-size: 2em;
+            /* Aumentado fonte */
+            margin-bottom: 12px;
+            /* Aumentado margin */
+            transition: color 0.2s ease;
+        }
+
+        .action-button:hover i {
+            color: var(--accent-color);
+        }
+
+
+        /* Estilos genéricos para outras páginas */
+        .page h1 {
+            font-size: 1.6em;
+            /* Aumentado fonte */
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            /* Aumentado margin */
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .page p,
+        .page .form-group {
+            margin-bottom: 18px;
+            /* Aumentado margin */
+            line-height: 1.7;
+            /* Aumentado line-height */
+        }
+
+        .page input[type="text"],
+        .page input[type="number"],
+        .page input[type="tel"],
+        .page select {
+            width: 100%;
+            padding: 14px;
+            /* Aumentado padding */
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1em;
+            margin-top: 6px;
+            /* Aumentado margin */
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .page input:focus,
+        .page select:focus {
+            outline: none;
+            border-color: var(--primary-color-light);
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+        }
+
+
+        .page button.primary-cta {
+            background-color: var(--accent-color);
+            color: #fff;
+            /* Texto branco para melhor contraste com laranja */
+            padding: 16px 22px;
+            /* Aumentado padding */
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05em;
+            /* Aumentado fonte */
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .page button.primary-cta:hover {
+            background-color: var(--accent-color-darker);
+            transform: translateY(-1px);
+        }
+
+        .page button.primary-cta:active {
+            transform: translateY(1px);
+        }
+
+        /* Tab Bar */
+        #tab-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: var(--tab-bar-height);
+            background-color: var(--card-bg-color);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.08);
+            /* Sombra mais pronunciada */
+            z-index: 1000;
+        }
+
+        .tab-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color-light);
+            font-size: 0.8em;
+            cursor: pointer;
+            padding: 8px 0;
+            transition: color 0.2s ease, transform 0.2s ease;
+            height: 100%;
+            position: relative;
+        }
+
+        .tab-item i {
+            font-size: 1.6em;
+            margin-bottom: 5px;
+        }
+
+        .tab-item.active {
+            color: var(--primary-color);
+            font-weight: 700;
+            /* Mais forte */
+        }
+
+        .tab-item.active::before {
+            /* Indicador visual para aba ativa */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 0 0 3px 3px;
+        }
+
+        .tab-item:hover {
+            color: var(--primary-color-light);
+        }
+
+
+        /* Estilos para o mapa Leaflet */
+        #map-container {
+            width: 100%;
+            height: 400px;
+            /* Altura ajustável conforme necessidade */
+            border-radius: 12px;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Para o ícone customizado do Leaflet, se precisar de CSS extra */
+        .leaflet-div-icon-bus {
+            text-align: center;
+            line-height: 24px;
+            /* Alinhar o ícone FA verticalmente se necessário */
+        }
+
+        .bus-popup-content b {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="app-header">
+        BusLink Maringá
+    </header>
+
+    <main id="app-content">
+        <section id="inicio" class="page active">
+            <div class="dashboard-saldo">
+                <h2>Saldo Atual do Passe</h2>
+                <p class="saldo-valor"><span class="saldo-unidade">R$</span><span id="saldo-atual-valor">23,50</span>
+                </p>
+            </div>
+            <div class="quick-actions">
+                <div class="action-button" data-target="recarga">
+                    <i class="fas fa-wallet"></i>
+                    <span>Recarregar Saldo</span>
+                </div>
+                <div class="action-button" data-target="mapa">
+                    <i class="fas fa-bus-alt"></i>
+                    <span>Rastrear Ônibus</span>
+                </div>
+                <div class="action-button" data-target="linhas">
+                    <i class="fas fa-route"></i>
+                    <span>Consultar Linhas</span>
+                </div>
+            </div>
+            <div
+                style="margin-top: 30px; padding:15px; background-color: var(--card-bg-color); border-radius:12px; box-shadow: 0 4px 10px rgba(0,0,0,0.07);">
+                <h3><i class="fas fa-bullhorn" style="color: var(--accent-color); margin-right: 8px;"></i>Avisos
+                    Importantes</h3>
+                <p style="font-size:0.9em; color: var(--text-color-light); margin-top:10px;">Fique atento aos horários
+                    de feriado. Algumas linhas podem ter horários reduzidos.</p>
+            </div>
+        </section>
+
+        <section id="linhas" class="page">
+            <h1>Linhas e Itinerários</h1>
+            <div class="form-group">
+                <input type="text" placeholder="Buscar linha ou destino...">
+            </div>
+            <p>Aqui seria exibida a lista de linhas, seus respectivos trajetos, pontos de parada e horários programados.
+                Uma busca permitiria filtrar rapidamente.</p>
+            <ul style="list-style: none; padding-left: 0;">
+                <li
+                    style="background-color: var(--card-bg-color); padding: 15px; border-radius: 8px; margin-bottom:10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                    <strong style="color: var(--primary-color);">Linha 022</strong> - Centro / UEM (via Av. Brasil)
+                </li>
+                <li
+                    style="background-color: var(--card-bg-color); padding: 15px; border-radius: 8px; margin-bottom:10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                    <strong style="color: var(--primary-color);">Linha 177</strong> - Zona Norte / Terminal
+                </li>
+                <li
+                    style="background-color: var(--card-bg-color); padding: 15px; border-radius: 8px; margin-bottom:10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                    <strong style="color: var(--primary-color);">Linha 324</strong> - Jardim Alvorada
+                </li>
+            </ul>
+        </section>
+
+        <section id="mapa" class="page">
+            <h1>Rastreamento em Tempo Real</h1>
+            <p>Selecione uma linha para ver os ônibus no mapa e a estimativa de chegada.</p>
+            <div class="form-group">
+                <select id="linha-filtro-mapa">
+                    <option value="all">Todas as Linhas</option>
+                    <option value="022">Linha 022 - Centro / UEM</option>
+                    <option value="177">Linha 177 - Zona Norte</option>
+                    <option value="324">Linha 324 - Jardim Alvorada</option>
+                </select>
+            </div>
+            <div id="map-container">
+            </div>
+        </section>
+
+        <section id="recarga" class="page">
+            <h1>Recarga de Saldo Online</h1>
+            <div class="form-group">
+                <label for="valor-recarga">Valor da Recarga (R$):</label>
+                <input type="number" id="valor-recarga" placeholder="Ex: 20,00" min="5">
+            </div>
+            <div class="form-group">
+                <label for="metodo-pagamento">Método de Pagamento:</label>
+                <select id="metodo-pagamento">
+                    <option value="pix">Pix</option>
+                    <option value="credito">Cartão de Crédito</option>
+                    <option value="debito">Cartão de Débito</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="numero-cartao">Número do Passe (para vincular):</label>
+                <input type="tel" id="numero-cartao" placeholder="Ex: 0123456789">
+            </div>
+            <button class="primary-cta" onclick="alert('Funcionalidade de recarga em desenvolvimento!')"><i
+                    class="fas fa-check-circle" style="margin-right: 8px;"></i>Confirmar Recarga</button>
+        </section>
+
+        <section id="perfil" class="page">
+            <h1>Perfil e Histórico</h1>
+            <div
+                style="background-color: var(--card-bg-color); padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.07);">
+                <h2
+                    style="color:var(--primary-color); border-bottom: 1px solid var(--border-color); padding-bottom:10px; margin-bottom:15px;">
+                    Seus Dados</h2>
+                <p><strong>Nome:</strong> Ana Estudante / Carlos Trabalhador</p>
+                <p><strong>Passe nº:</strong> <span id="passe-numero-perfil">0123456789</span></p>
+                <p><strong>Categoria:</strong> Estudante / Comum</p>
+            </div>
+            <div
+                style="background-color: var(--card-bg-color); padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.07); margin-top:20px;">
+                <h2
+                    style="color:var(--primary-color); border-bottom: 1px solid var(--border-color); padding-bottom:10px; margin-bottom:15px;">
+                    Histórico de Transações</h2>
+                <ul style="list-style:none; padding-left:0;">
+                    <li style="padding: 10px 0; border-bottom: 1px dashed var(--border-color);">Recarga: +R$20,00 (Pix)
+                        - 28/05/2025</li>
+                    <li style="padding: 10px 0; border-bottom: 1px dashed var(--border-color);">Uso: -R$4,50 (Linha 022)
+                        - 27/05/2025</li>
+                    <li style="padding: 10px 0;">Uso: -R$4,50 (Linha 177) - 26/05/2025</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <nav id="tab-bar">
+        <div class="tab-item active" data-target="inicio">
+            <i class="fas fa-home"></i>
+            <span>Início</span>
+        </div>
+        <div class="tab-item" data-target="linhas">
+            <i class="fas fa-list-ul"></i>
+            <span>Linhas</span>
+        </div>
+        <div class="tab-item" data-target="mapa">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Mapa</span>
+        </div>
+        <div class="tab-item" data-target="recarga">
+            <i class="fas fa-credit-card"></i>
+            <span>Recarga</span>
+        </div>
+        <div class="tab-item" data-target="perfil">
+            <i class="fas fa-user"></i>
+            <span>Perfil</span>
+        </div>
+    </nav>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabItems = document.querySelectorAll('.tab-item');
+            const pages = document.querySelectorAll('.page');
+            const quickActionButtons = document.querySelectorAll('.action-button');
+            const filtroLinhaMapa = document.getElementById('linha-filtro-mapa');
+
+            let map = null; // Variável para guardar a instância do mapa
+            let busMarkersLayer = L.layerGroup(); // Camada para os marcadores dos ônibus
+
+            // Cores para as linhas de ônibus (pode ser expandido)
+            const lineColors = {
+                "022": "#007bff", // Azul
+                "177": "#28a745", // Verde
+                "324": "#ffc107", // Amarelo
+                "default": "#6c757d" // Cinza
+            };
+
+            function getLineColor(line) {
+                return lineColors[line] || lineColors["default"];
+            }
+
+            // Dados fictícios dos ônibus
+            const allBusesData = [
+                { id: 1, line: "022", lat: -23.4210, lon: -51.9350, eta: "5 min", driver: "João Silva" },
+                { id: 2, line: "177", lat: -23.4305, lon: -51.9402, eta: "10 min", driver: "Maria Oliveira" },
+                { id: 3, line: "022", lat: -23.4280, lon: -51.9300, eta: "2 min", driver: "Carlos Pereira" },
+                { id: 4, line: "324", lat: -23.4150, lon: -51.9500, eta: "7 min", driver: "Ana Costa" },
+                { id: 5, line: "177", lat: -23.4350, lon: -51.9250, eta: "12 min", driver: "Pedro Martins" },
+                { id: 6, line: "022", lat: -23.4190, lon: -51.9450, eta: "imediato", driver: "Sofia Almeida" },
+            ];
+
+            function createBusIcon(busLine) {
+                const color = getLineColor(busLine);
+                return L.divIcon({
+                    html: `<i class="fas fa-bus" style="color: white; background-color: ${color}; padding: 5px; border-radius: 50%; font-size: 16px; box-shadow: 0 0 5px rgba(0,0,0,0.5);"></i>`,
+                    className: 'leaflet-div-icon-bus', // Não precisa de CSS extra, mas mantém a classe
+                    iconSize: [26, 26], // Tamanho do ícone + padding
+                    iconAnchor: [13, 13] // Metade do iconSize para centralizar
+                });
+            }
+
+            function plotBuses(filterLine = "all") {
+                busMarkersLayer.clearLayers(); // Limpa marcadores anteriores
+
+                const filteredBuses = filterLine === "all"
+                    ? allBusesData
+                    : allBusesData.filter(bus => bus.line === filterLine);
+
+                filteredBuses.forEach(bus => {
+                    const marker = L.marker([bus.lat, bus.lon], { icon: createBusIcon(bus.line) })
+                        .bindPopup(`<div class="bus-popup-content"><b>Linha: ${bus.line}</b><br>Motorista: ${bus.driver}<br>Chegada estimada: ${bus.eta}</div>`);
+                    busMarkersLayer.addLayer(marker);
+                });
+            }
+
+            function initMap() {
+                if (!map) { // Inicializa o mapa apenas uma vez
+                    map = L.map('map-container').setView([-23.4253, -51.9386], 14); // Maringá, PR
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                        maxZoom: 19,
+                        minZoom: 12 // Evita zoom out excessivo
+                    }).addTo(map);
+                    busMarkersLayer.addTo(map); // Adiciona a camada de marcadores ao mapa
+                }
+                map.invalidateSize(); // Garante que o mapa seja renderizado corretamente
+                plotBuses(filtroLinhaMapa.value); // Plota os ônibus com o filtro atual
+            }
+
+
+            function setActiveTab(targetId) {
+                pages.forEach(page => page.classList.remove('active'));
+                tabItems.forEach(item => item.classList.remove('active'));
+
+                const targetPage = document.getElementById(targetId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                }
+
+                const targetTabItem = document.querySelector(`.tab-item[data-target="${targetId}"]`);
+                if (targetTabItem) {
+                    targetTabItem.classList.add('active');
+                }
+
+                window.scrollTo(0, 0);
+
+                // Se a aba do mapa for ativada, inicializa o mapa
+                if (targetId === 'mapa') {
+                    // Pequeno delay para garantir que o container do mapa está visível e com dimensões corretas
+                    setTimeout(initMap, 50);
+                }
+            }
+
+            tabItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetId = item.getAttribute('data-target');
+                    setActiveTab(targetId);
+                });
+            });
+
+            quickActionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    setActiveTab(targetId);
+                });
+            });
+
+            if (filtroLinhaMapa) {
+                filtroLinhaMapa.addEventListener('change', (event) => {
+                    if (map) { // Apenas replota se o mapa já foi inicializado
+                        plotBuses(event.target.value);
+                    }
+                });
+            }
+
+            // Simular uma mudança dinâmica no saldo para teste
+            // setTimeout(() => {
+            //     document.getElementById('saldo-atual-valor').textContent = '18,00';
+            // }, 5000);
+
+        });
+    </script>
+</body>
+
+</html>
