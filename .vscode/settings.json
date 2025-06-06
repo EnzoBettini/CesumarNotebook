@@ -56,5 +56,6 @@
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
-  "livePreview.defaultPreviewPath": "/2025/WorkInTech2025.1/AI/teste.html"
+  "livePreview.defaultPreviewPath": "/2025/WorkInTech2025.1/AI/teste.html",
+  "editor.rulers": []
 }
