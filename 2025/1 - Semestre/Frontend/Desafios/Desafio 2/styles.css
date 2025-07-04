@@ -1,0 +1,24 @@
+.numero {
+    background-color: rgb(22, 46, 155) !important; 
+    color: white !important;
+}
+
+.operacao {
+    background-color: rgb(249, 236, 59) !important; 
+    color: rgb(49, 46, 46) !important;
+}
+
+.options {
+    background-color: rgb(249, 62, 59) !important; 
+    color: rgb(248, 248, 248) !important;
+}
+
+#display {
+    height: 64px;
+    background-color: rgb(227, 227, 227);
+}
+
+#calc{
+    background-color: rgb(96, 96, 96);
+    border-radius: 5%;
+}

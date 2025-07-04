@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de pessoas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerenciador de Pessoas</h1>
+        <form>
+            <input class="margens" type="text" id="nome" placeholder="Digite seu nome" oninput="this.value = this.value.replace(/[^A-Za-zÀ-ÿ ]/g, '')">
+            <input class="margens" type="text" id="idade" placeholder="Digite sua idade" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+            <button id="adicionar" onclick="verificarCampos()">Adicionar</button>
+        </form>
+    </div>
+    <div class="container">
+        <form>
+            <input class="margens" type="text" id="nome2" placeholder="Digite o nome para verificar" oninput="this.value = this.value.replace(/[^A-Za-zÀ-ÿ ]/g, '')">
+            <div class="button-group">
+                <button class="margens" id="verificar" onclick="verificarRemoção(0)">Verificar</button>
+                <button class="margens" id="remover" onclick="verificarRemoção(1)">Remover</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+1- Um endereço de memória
+
+2- um ponteiro sempre vai ter 4 ou 8 bytes, dependendo se é 32 ou 64 bits
+
+3-sistema 32 ou 64 bits
+
+4-no stack
+
+5- no heap
+
+6-22
+
+7-0060FF24
+
+8-0060ff24
+
+9-0060ff20
+
+10-22
+
+11-depende do que ele vai representar
+
+12-será necessario mudar seu tipo (cast) *(int*)ptr
+
+13-comportamento indefinido, ptr_x nao aponta pra nada
+
+14-51
+
+15-100 dps 200
+
+16-diz o tamanho em bytes de algo, por exemplo sizeof(int) -> 4 bytes sizeof(char)-> um bytes
+
+17-8, pois idade é um inteiro de 4 bytes e o ponteiro em 32 bits sempre tem 4 bytes em 64 ocuparia 12

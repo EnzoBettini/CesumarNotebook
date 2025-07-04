@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="paragrafo">Este é um parágrafo sem alteração preto</p>
+    <p class="paragrafo2">Este é um parágrafo sem alteração preto</p>
+    <button class="botao">alterar cor 2 paragrafo</button>
+    <button onclick="alterarCor()" class="botao2">alterar cor 2 paragrafo</button>
+
+    <script>
+        let paragrafo = document.querySelectorAll(".paragrafo");
+
+        paragrafo.forEach(function(paragrafos){
+        paragrafos.style.color = "red"
+        paragrafos.textContent ="Este paragrafo foi alterado"
+        })
+
+        let paragrafo2 = document.querySelectorAll(".paragrafo2");
+        let botao = document.querySelectorAll(".botao");
+
+        botao.forEach(function(botaos){
+            botaos.addEventListener("click", function(){
+            paragrafo2.forEach(function(paragrafos2){
+                paragrafos2.style.color = "red"
+                paragrafos2.textContent ="Este paragrafo foi alterado"
+                })
+            })
+        })
+
+        function alterarCor(){
+            let alteracao = document.querySelectorAll(".paragrafo2")
+            alteracao.forEach(function(alteracaos){
+                alteracaos.style.color = "blue"
+                alteracaos.textContent ="Este paragrafo foi alterado pelo segundo botão"
+            })
+        }
+
+    </script>
+</body>
+</html>
