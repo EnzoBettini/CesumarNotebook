@@ -1,3 +1,5 @@
+package ExemploProfessor;
+
 public class Pessoa {
     String nome;
     String cpf;

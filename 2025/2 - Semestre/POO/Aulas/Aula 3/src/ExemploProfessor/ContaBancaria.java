@@ -1,3 +1,5 @@
+package ExemploProfessor;
+
 public class ContaBancaria {
     double saldo;
     String numeroConta;

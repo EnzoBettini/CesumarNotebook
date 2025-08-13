@@ -1,3 +1,5 @@
+package ExemploProfessor;
+
 public class Cartao {
     String codigo;
     String cvv;
