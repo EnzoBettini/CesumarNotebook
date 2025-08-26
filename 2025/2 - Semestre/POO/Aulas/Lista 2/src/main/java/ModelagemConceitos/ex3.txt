@@ -1,0 +1,53 @@
+a) Smartphone
+
+Atributos:
+
+marca (ex: "Apple", "Samsung")
+
+modelo (ex: "iPhone 15 Pro", "Galaxy S25")
+
+nivel_bateria (ex: 85%)
+
+Métodos:
+
+fazer_ligacao(numero)
+
+enviar_mensagem(destinatario, texto)
+
+conectar_wifi(rede, senha)
+
+b) Garrafa de Água
+
+Atributos:
+
+capacidade_ml (ex: 500)
+
+volume_atual_ml (ex: 250)
+
+material (ex: "Plástico", "Aço Inox")
+
+Métodos:
+
+encher(quantidade)
+
+esvaziar(quantidade)
+
+verificar_nivel()
+
+c) Cadeira de Escritório
+
+Atributos:
+
+altura_assento_cm (ex: 45)
+
+cor (ex: "Preta")
+
+possui_rodinhas (ex: True)
+
+Métodos:
+
+ajustar_altura(nova_altura)
+
+inclinar_encosto(angulo)
+
+girar(direcao)

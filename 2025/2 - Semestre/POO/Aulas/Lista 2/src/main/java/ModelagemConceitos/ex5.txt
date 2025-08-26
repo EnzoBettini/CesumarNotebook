@@ -1,0 +1,26 @@
+5. Abstração
+Abstrair um objeto do mundo real para uma classe em um software significa simplificar sua complexidade, focando apenas nas características (atributos) e comportamentos (métodos) que são relevantes para o problema que estamos tentando resolver. Ignoramos os detalhes desnecessários para criar um modelo funcional e compreensível dentro do sistema.
+
+Em outras palavras, a abstração é o processo de "filtrar" a realidade para capturar a essência de um objeto para um determinado contexto.
+
+Exemplo: Abstraindo um "Carro"
+
+Um carro no mundo real é extremamente complexo: tem milhares de peças, um motor com pistões, sistema de injeção, transmissão, eletricidade, etc. Se fôssemos criar um software, o nível de abstração dependeria do propósito do sistema:
+
+Para um jogo de corrida:
+
+Atributos relevantes: velocidade_atual, cor, modelo, posicao_na_pista.
+
+Métodos relevantes: acelerar(), frear(), virar(direcao).
+
+Detalhes ignorados: Consumo de combustível, número do chassi, funcionamento interno do motor.
+
+Para um sistema de uma concessionária:
+
+Atributos relevantes: marca, modelo, ano, preco, numero_chassi, quilometragem.
+
+Métodos relevantes: vender(), registrar_manutencao(), calcular_valor_revenda().
+
+Detalhes ignorados: Velocidade em tempo real, posição na pista.
+
+A classe Carro em cada um desses sistemas seria diferente, pois a abstração foi feita com focos distintos, selecionando apenas o que era essencial para cada contexto.

@@ -1,0 +1,14 @@
+4. Procedural vs. POO: Agenda de Contatos
+A diferença fundamental entre as duas abordagens para criar uma agenda de contatos está em como os dados e as operações são organizados.
+
+Abordagem Procedural:
+Nesta abordagem, o foco está nas ações (procedimentos ou funções). Teríamos dados e funções separados. Por exemplo, poderíamos ter listas ou arrays para armazenar os nomes, outra para os telefones e outra para os e-mails.
+
+nomes = ["Alice", "Beto"]
+telefones = ["9999-8888", "7777-6666"]
+emails = ["alice@email.com", "beto@email.com"]
+As funções operariam sobre esses dados, como adicionar_contato(nome, telefone, email), buscar_contato(nome) e remover_contato(nome). O problema é que os dados e as funções que os manipulam não estão intrinsecamente ligados. Isso pode levar a um código mais difícil de manter e escalar, pois qualquer alteração na estrutura dos dados exige a revisão de todas as funções que os utilizam.
+
+Abordagem Orientada a Objetos (POO):
+Nesta abordagem, o foco está em criar um molde (uma Classe) que representa o conceito de um "Contato". Esse molde agrupa tanto os dados (atributos) quanto as ações (métodos) relacionadas a um contato em uma única entidade coesa.
+Criaríamos uma classe chamada Contato com atributos como nome, telefone e email.
