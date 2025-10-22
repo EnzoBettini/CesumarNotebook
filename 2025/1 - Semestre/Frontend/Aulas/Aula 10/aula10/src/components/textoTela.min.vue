@@ -1,1 +1,0 @@
-<script setup>const props=defineProps(['titulo', 'data', 'texto']);</script><template><div class="container"><h1>{{ titulo}}</h1><h6>{{ data}}</h6><p>{{ texto}}</p></div></template>
