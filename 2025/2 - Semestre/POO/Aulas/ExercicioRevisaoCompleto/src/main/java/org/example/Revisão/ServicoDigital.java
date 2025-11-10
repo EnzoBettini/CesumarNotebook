@@ -1,24 +1,24 @@
 package org.example.Revisão;
 
-public class ServicoDigital extends ItemVendavel{
-    public Integer duracaoMeses;
+public class ServicoDigital extends ItemVendavel {
+    private int duracaoMeses;
 
-    public ServicoDigital(String nome, Double precoBase, Integer duracaoMeses) {
+    public ServicoDigital(String nome, double precoBase, int duracaoMeses) {
         super(nome, precoBase);
         this.duracaoMeses = duracaoMeses;
     }
 
     @Override
-    public Double calcularPrecoFinal() {
-        return precoBase * duracaoMeses;
+    public String getTipo() {
+        return "Digital";
     }
 
     @Override
-    public void informarTipo() {
-        System.out.println("Serviço Digital");
+    public double calcularPrecoFinal() {
+        return precoBase * duracaoMeses;
     }
 
-    public Integer getDuracaoMeses() {
+    public int getDuracaoMeses() {
         return duracaoMeses;
     }
 }

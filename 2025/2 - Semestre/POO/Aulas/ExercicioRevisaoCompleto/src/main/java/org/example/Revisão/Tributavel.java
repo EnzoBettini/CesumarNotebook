@@ -1,7 +1,5 @@
 package org.example.Revisão;
 
-public interface Tributavel{
-
-    Double calcularValorImposto();
-
+public interface Tributavel {
+    double calcularImposto();
 }

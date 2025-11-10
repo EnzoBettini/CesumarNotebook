@@ -1,25 +1,29 @@
 package org.example.Revisão;
 
 public class ProdutoFisico extends ItemVendavel implements Tributavel {
-    public Double pesoEmKg;
+    private double pesoEmKg;
 
-    public ProdutoFisico(String nome,Double precoBase, Double pesoEmKg) {
+    public ProdutoFisico(String nome, double precoBase, double pesoEmKg) {
         super(nome, precoBase);
         this.pesoEmKg = pesoEmKg;
     }
 
     @Override
-    public void informarTipo() {
-        System.out.println("Fisico");
+    public String getTipo() {
+        return "Fisico";
     }
 
     @Override
-    public Double calcularPrecoFinal() {
+    public double calcularPrecoFinal() {
         return this.precoBase + (this.pesoEmKg * 3.50);
     }
 
     @Override
-    public Double calcularValorImposto() {
+    public double calcularImposto() {
         return this.precoBase * 0.05;
+    }
+
+    public double getPesoEmKg() {
+        return pesoEmKg;
     }
 }
