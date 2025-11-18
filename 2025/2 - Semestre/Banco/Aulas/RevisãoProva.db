@@ -1,0 +1,91 @@
+INSERT INTO tabela_destino(col1, col2, col_extra)
+SELECT coluna1, coluna2, CURRENT_TIMESTAMP()
+FROM tabela_inicio;
+
+SELECT id FROM tabela
+GROUP BY coluna
+HAVING COUNT(*) > 5;
+
+UPDATE funcionarios
+SET salario = salario * 1.1
+WHERE id IN (
+    SELECT id_funcionario
+    FROM vendas
+    GROUP BY id_funcionario
+    HAVING COUNT(*) > 5
+);
+
+CREATE INDEX idx_email ON clientes (email);
+
+SELECT departamento,
+    count(*) as num_funcionarios,
+    SUM(salario) as folha_pagamento
+FROM funcionarios
+GROUP BY departamento
+HAVING SUM(salario) > 50000
+ORDER BY folha_pagamento DESC;
+
+SELECT
+    c.nome,
+
+    -- CONTA quantos pedidos (Use ID da tabela da direita para contar 0 corretamente)
+    COUNT(p.id) as qtd_pedidos,
+
+    -- SOMA o valor. Se for NULL (ninguém comprou), vira 0.
+    COALESCE(SUM(p.valor), 0) as total_gasto,
+
+    -- CLASSIFICA o cliente baseado na SOMA
+    CASE
+        WHEN SUM(p.valor) > 1000 THEN 'Cliente VIP'
+        WHEN SUM(p.valor) > 500 THEN 'Cliente Bom'
+        ELSE 'Cliente Comum'
+    END as classificacao
+
+FROM clientes c
+-- LEFT JOIN para trazer o cliente MESMO se ele não tiver pedidos
+LEFT JOIN pedidos p ON c.id = p.id_cliente
+
+GROUP BY c.id, c.nome
+ORDER BY total_gasto DESC;
+
+
+SELECT
+    p.nome AS nome_produto,
+    c.nome AS nome_categoria,
+    p.preco
+FROM produtos p
+INNER JOIN categorias c ON p.id_categoria = c.id
+ORDER BY p.preco DESC;
+
+
+SELECT
+    c.nome AS categoria,
+    AVG(p.preco) AS media_preco  -- AVG calcula a média
+FROM categorias c
+INNER JOIN produtos p ON c.id = p.id_categoria
+GROUP BY c.nome
+ORDER BY media_preco DESC;
+
+SELECT
+    m.nome AS marca,
+    COUNT(p.id) AS total_produtos -- COUNT conta as linhas
+FROM marcas m
+INNER JOIN produtos p ON m.id = p.id_marca
+GROUP BY m.nome;
+
+SELECT
+    m.nome AS marca,
+    COUNT(p.id) AS total_produtos -- COUNT conta as linhas
+FROM marcas m
+INNER JOIN produtos p ON m.id = p.id_marca
+GROUP BY m.nome;
+
+SELECT
+    m.nome AS marca,
+    COUNT(p.id) AS total_produtos
+FROM marcas m
+INNER JOIN produtos p ON m.id = p.id_marca
+
+GROUP BY m.nome          -- 1. Agrupa
+HAVING COUNT(p.id) > 5   -- 2. Filtra quem tem pouco produto
+ORDER BY total_produtos DESC;
