@@ -1,0 +1,12 @@
+Não, um método abstract **não pode existir dentro de uma classe concreta**.
+
+Justificativa:
+Um método abstract não possui implementação, ou seja, não sabe como executar sua lógica.
+Se fosse permitido ter um método abstract em uma classe concreta, seria possível criar
+uma instância (usando new) dessa classe.
+Ao tentar chamar o método abstract dessa instância, o programa não saberia o que fazer,
+gerando erro de execução ou comportamento indefinido.
+
+Portanto, toda classe que contém ao menos um método abstract deve ser declarada
+abstract, garantindo que ela não possa ser instanciada diretamente e que
+subclasses concretas implementem todos os métodos abstratos.

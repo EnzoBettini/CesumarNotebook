@@ -1,0 +1,16 @@
+A classe Produto deve ser abstrata, porque Produto representa um conceito genérico
+do sistema: todos os produtos compartilham características comuns (nome, preço, estoque),
+mas cada tipo específico (Livro, Eletronico, Vestuario) tem atributos ou comportamentos
+específicos.
+
+Se Produto fosse concreta, um vendedor poderia cadastrar um "Produto genérico", sem
+informações específicas. Isso traria problemas, como:
+
+Não seria possível definir atributos específicos do tipo de produto (ex.: autor do livro,
+voltagem do eletrônico, tamanho do vestuário);
+Geraria inconsistência nos relatórios e nos cálculos de impostos ou frete;
+Dificultaria a aplicação de regras de negócio específicas de cada categoria.
+
+Usando Produto como **abstract**, você força os vendedores a escolherem um tipo
+concreto, garantindo que todos os produtos cadastrados tenham comportamento e atributos
+adequados à sua categoria.

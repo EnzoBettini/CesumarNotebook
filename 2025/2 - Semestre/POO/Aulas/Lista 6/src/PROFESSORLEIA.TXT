@@ -1,0 +1,1 @@
+- A lista 1 é a de interfaces e a lista 2 é a de abstração
