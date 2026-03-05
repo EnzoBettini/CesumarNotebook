@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/estudantes")
@@ -20,7 +21,12 @@ public class EstudanteController {
     }
 
     @PostMapping
-    public EstudanteModel  criarEstudante(@RequestBody EstudanteModel estudanteModel) {
+    public EstudanteModel criarEstudante(@RequestBody EstudanteModel estudanteModel) {
         return estudanteService.criarEstudante(estudanteModel);
+    }
+
+    @PutMapping("/{id}")
+    public EstudanteModel atualizarEstudante(@PathVariable Long id, @RequestBody EstudanteModel estudanteModel) {
+        return estudanteService.atualizarEstudante(id, estudanteModel);
     }
 }
