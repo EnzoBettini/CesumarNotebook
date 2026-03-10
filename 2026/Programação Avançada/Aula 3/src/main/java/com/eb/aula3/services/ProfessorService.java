@@ -1,8 +1,8 @@
-package com.eb.school.services;
+package com.eb.aula3.services;
 
-import com.eb.school.models.AlunoModel;
-import com.eb.school.models.ProfessorModel;
-import com.eb.school.repositories.ProfessorRepository;
+import com.eb.aula3.models.AlunoModel;
+import com.eb.aula3.models.ProfessorModel;
+import com.eb.aula3.repositories.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;

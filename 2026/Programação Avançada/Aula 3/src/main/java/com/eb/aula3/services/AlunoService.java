@@ -1,7 +1,7 @@
-package com.eb.school.services;
+package com.eb.aula3.services;
 
-import com.eb.school.models.AlunoModel;
-import com.eb.school.repositories.AlunoRepository;
+import com.eb.aula3.models.AlunoModel;
+import com.eb.aula3.repositories.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +20,13 @@ public class AlunoService {
     public AlunoModel criar(AlunoModel alunoModel) {
         alunoModel.setId(null);
         return alunoRepository.save(alunoModel);
+    }
+
+    public void deletar(Long id) {
+        if (alunoRepository.existsById(id)) {
+            alunoRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Aluno com id inexistente");
+        }
     }
 }
