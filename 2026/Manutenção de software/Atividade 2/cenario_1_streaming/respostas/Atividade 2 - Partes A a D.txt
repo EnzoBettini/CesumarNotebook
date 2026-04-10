@@ -1,0 +1,86 @@
+Manutenção de software - Atividade 2 - Cenário streaming
+Respostas das partes A a D
+Enzo Ayres Bettini 241955272
+Gabriel Henrik de Castro da Maia 240394522
+Samuel de barros bispo da silva 24000524-2
+
+
+PARTE A
+
+a) Qual é a responsabilidade principal de cada uma das classes
+
+Usuario: representa o cliente no sistema (id, nome, e-mail) e deixa consultar se está adimplente.
+
+Filme: guarda os dados do título (código, nome, licenças, preço) e tem os métodos para ver se ainda tem licença e para baixar uma depois da locação.
+
+Locacao: é o registro da locação em si, ligando usuário e filme, com o valor pago e se ainda está ativa.
+
+LocacaoRepository: grava e consulta locações no banco ou onde for; no código aparecem jaLocado e salvar.
+
+PagamentoGateway: é onde tenta cobrar — recebe usuário e valor e devolve se deu certo ou não.
+
+NotificadorEmail: manda o e-mail de confirmação depois que a locação passa, usando usuário e filme.
+
+StreamingService: junta tudo no processarLocacao — checa regras, calcula valor, cobra, salva, dispara e-mail e atualiza licença.
+
+b) Fluxo geral do método processarLocacao
+
+Primeiro testa se usuário e filme vêm preenchidos, se dá para locar (não repetido, tem licença, perfil ok).
+Calcula o valor com cupom e estreia se marcou as opções.
+Só cobra se o usuário estiver em dia; se o gateway aceitar, grava a locação, envia o e-mail e tira uma licença do filme e devolve mensagem de sucesso.
+Se alguma checagem falhar ou o pagamento não passar, devolve a string de erro correspondente.
+
+c) Dois fatores que tornam o código do método processarLocacao mais difícil de compreender e manter
+
+Muitos ifs um dentro do outro deixam o método difícil de seguir na hora de achar qual return pertence a qual condição.
+Tudo está no mesmo método: validação, preço, pagamento, banco e e-mail; uma alteração local pode afetar trechos aparentemente independentes.
+
+
+PARTE B
+
+a) Calculem a complexidade ciclomática do método, montando o grafo e usando a fórmula M = E - N + 2P
+
+Fórmula de McCabe: M = E - N + 2P, em que E é o número de arestas do grafo, N o número de nós e P o número de componentes conexos.
+
+Aqui o método é um bloco só, então P = 1 e a conta vira M = E - N + 2.
+
+No grafo desenhado a partir dos ifs e dos returns, ao contar E e N, a fórmula acima precisa fechar em M = 10 (ou seja, E - N = 8 com P = 1).
+
+Checagem alternativa: são nove condições com if (usuário nulo, filme nulo, já locado, licença, perfil, cupom, estreia, adimplente, cobrança). Usando a regra M = número de predicados + 1, também dá 10.
+
+b) Identifiquem a profundidade máxima de aninhamento do método
+
+A profundidade máxima é de 7 níveis, no caminho de usuário até filme, já locado, licença, perfil, adimplência e o if da cobrança. Os ifs de cupom e estreia não estão aninhados um no outro, portanto não aumentam esse valor.
+
+c) Considerando apenas as dependências diretas declaradas como atributos de StreamingService, indique o acoplamento entre objetos (CBO) para essa classe
+
+Só pelos campos da classe são três tipos ligados: LocacaoRepository, PagamentoGateway e NotificadorEmail. CBO = 3.
+
+d) Expliquem, em 5 a 8 linhas, como essas métricas ajudam a prever dificuldade de manutenção, teste e compreensão
+
+Quanto mais ramos no método, maior o número de caminhos a testar e maior o risco de omitir algum caso.
+Aninhamento alto prejudica a leitura e dificulta a inclusão de nova regra sem impacto colateral no restante.
+CBO alto por atributo mostra com quantas classes diferentes essa classe conversa; muda uma dependência e pode haver efeito em cadeia.
+Esses indicadores não esgotam a análise, mas apontam trechos em que o código tende a ser mais difícil de manter antes de uma refatoração.
+Em manutenção, trecho complexo exige mais tempo para entender e localizar falhas; em teste, são necessários mais cenários cobrindo cada saída.
+
+
+PARTE C
+-> imagem em anexo
+
+PARTE D
+
+Refatoração e reengenharia
+
+No PDF o método vem como processarMatricula; aqui no cenário o nome é processarLocacao. A ideia da refatoração é a mesma: mesmo comportamento e mesmas mensagens.
+
+a) Qual métrica foi melhorada, qual o valor antigo e o valor novo
+
+A métrica afetada é a profundidade de aninhamento: no código original o pior caso chegava a cerca de 7 níveis de if empilhados; após o uso de guard clauses o método principal fica linear, com um nível por verificação antes do return. O CBO não se altera, pois permanecem os mesmos três atributos (repo, gateway, e-mail).
+
+b) Por que essa reescrita é exemplo de reengenharia ou reestruturação de código, em quatro a seis linhas
+
+Reengenharia aqui é mudar a organização interna sem mudar o que o método devolve para quem chama.
+Entradas, saídas e a ordem das regras continuam iguais; o método passa a ser dividido em partes menores e some a escada de ifs.
+É o tipo de mudança que se faz quando o sistema já roda mas o código está ruim de mexer.
+Não é feature nova nem troca de tecnologia; é arrumar o legado para leitura e manutenção depois.
