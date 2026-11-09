@@ -1,0 +1,305 @@
+use empresa_tech
+
+db.funcionarios.insertMany([
+  {
+    nome: "Ana Silva",
+    idade: 28,
+    cargo: "Desenvolvedora Frontend",
+    departamento: "Tecnologia",
+    salario: 7500.00,
+    data_contratacao: new Date("2021-03-15"),
+    ativo: true,
+    habilidades: ["JavaScript", "React", "CSS", "HTML"],
+    contato: {
+      email: "ana.silva@empresa.com",
+      telefone: "11-98765-4321"
+    }
+  },
+  {
+    nome: "Bruno Costa",
+    idade: 35,
+    cargo: "Desenvolvedor Backend",
+    departamento: "Tecnologia",
+    salario: 9000.00,
+    data_contratacao: new Date("2019-07-20"),
+    ativo: true,
+    habilidades: ["Java", "Spring", "Docker", "PostgreSQL"],
+    contato: {
+      email: "bruno.costa@empresa.com"
+    }
+  },
+  {
+    nome: "Carla Dias",
+    idade: 42,
+    cargo: "Gerente de Projetos",
+    departamento: "Projetos",
+    salario: 12500.00,
+    data_contratacao: new Date("2017-01-10"),
+    ativo: true,
+    habilidades: ["Scrum", "Jira", "Gestão de Riscos"],
+    contato: {
+      email: "carla.dias@empresa.com",
+      telefone: "11-91234-5678"
+    }
+  },
+  {
+    nome: "Daniel Farias",
+    idade: 25,
+    cargo: "Analista de Dados",
+    departamento: "BI",
+    salario: 6000.00,
+    data_contratacao: new Date("2022-11-01"),
+    ativo: true,
+    habilidades: ["SQL", "Python", "PowerBI", "AWS"],
+    contato: {
+      email: "daniel.farias@empresa.com"
+    }
+  },
+  {
+    nome: "Eduarda Lima",
+    idade: 31,
+    cargo: "Analista de RH",
+    departamento: "RH",
+    salario: 5500.00,
+    data_contratacao: new Date("2020-05-30"),
+    ativo: false,
+    habilidades: ["Recrutamento", "Entrevistas", "Legislação"],
+    contato: {
+      email: "eduarda.lima@empresa.com",
+      telefone: "11-98888-7777"
+    }
+  },
+  {
+    nome: "André Marques",
+    idade: 29,
+    cargo: "Desenvolvedor Fullstack",
+    departamento: "Tecnologia",
+    salario: 8500.00,
+    data_contratacao: new Date("2023-02-18"),
+    ativo: true,
+    habilidades: ["Node.js", "React", "MongoDB", "AWS"],
+    contato: {
+      email: "andre.marques@empresa.com"
+    }
+  }
+]);
+
+O departamento de RH precisa cadastrar um novo estagiário, "Fabio Martins", que se juntou ao time de Tecnologia.
+db.funcionarios.insertOne({
+  nome: "Fabio Martins",
+  cargo: "Estagiário",
+  departamento: "Tecnologia",
+  salario: 2500.00,
+  data_contratacao: new Date(), // Data atual
+  ativo: true,
+  habilidades: ["HTML", "CSS"]
+})
+
+Para confirmar que o novo funcionário foi adicionado, podemos procurá-lo pelo nome. O comando deve retornar o documento que acabamos de inserir.
+db.funcionarios.findOne({ nome: "Fabio Martins" })
+
+Promoção de Funcionário (Operador $set)
+
+Solicitação: O funcionário "Daniel Farias" foi promovido! O RH solicitou a alteração de seu cargo para "Cientista de Dados" e seu salário para 7800.00.
+db.funcionarios.updateOne(
+  { nome: "Daniel Farias" }, // Filtro para encontrar o documento
+  { 
+    $set: { 
+      cargo: "Cientista de Dados", 
+      salario: 7800.00 
+    } 
+  } // Ação de atualização
+)
+
+Vamos consultar o registro do Daniel para ver se a promoção foi aplicada."
+
+db.funcionarios.findOne({ nome: "Daniel Farias" })
+
+
+A empresa decidiu que, por questões de privacidade, o telefone pessoal de funcionários que não são gerentes deve ser removido. Precisamos remover o telefone da "Ana Silva".
+db.funcionarios.updateOne(
+  { nome: "Ana Silva" },
+  { $unset: { "contato.telefone": "" } } // O valor não importa, apenas a chave
+)
+
+"Consultando o registro da Ana, o campo telefone não deve mais existir dentro do sub-documento contato."
+db.funcionarios.findOne({ nome: "Ana Silva" })
+
+A diretoria aprovou um bônus de R$ 500 para todos os funcionários do departamento de "Tecnologia" como reconhecimento pelo sucesso de um projeto.
+db.funcionarios.updateMany(
+  { departamento: "Tecnologia" },
+  { $inc: { salario: 500 } } // Incrementa o salário em 500
+)
+
+"Vamos listar os salários do time de tecnologia para ver o reajuste."
+db.funcionarios.find({ departamento: "Tecnologia" }, { nome: 1, salario: 1, _id: 0 })
+
+A "Ana Silva" concluiu um curso de "TypeScript". O RH precisa adicionar essa nova competência à sua lista de habilidades.
+db.funcionarios.updateOne(
+  { nome: "Ana Silva" },
+  { $push: { habilidades: "TypeScript" } }
+)
+
+"Vamos checar a lista de habilidades da Ana."
+db.funcionarios.findOne({ nome: "Ana Silva" }, { habilidades: 1, _id: 0 })
+
+
+Removendo uma Habilidade Obsoleta (Operador $pull)
+
+Solicitação: A empresa padronizou o uso de outra ferramenta e a habilidade "Jira" não é mais considerada uma competência chave para a "Carla Dias". Precisamos removê-la de seu perfil.
+db.funcionarios.updateOne(
+  { nome: "Carla Dias" },
+  { $pull: { habilidades: "Jira" } }
+)
+
+"Vamos verificar novamente as habilidades da Carla."
+db.funcionarios.findOne({ nome: "Carla Dias" }, { habilidades: 1, _id: 0 })
+
+
+A funcionária "Eduarda Lima", que já constava como inativa, foi oficialmente desligada da empresa. Seu registro precisa ser removido do sistema de funcionários ativos.
+db.funcionarios.deleteOne({ nome: "Eduarda Lima" })
+
+ "Ao tentar encontrar a Eduarda, a consulta não deve retornar nenhum resultado."
+db.funcionarios.findOne({ nome: "Eduarda Lima" })
+
+Como parte de uma limpeza de dados, o RH pediu para remover todos os funcionários que estão marcados como ativo: false.
+/ Passo 1 (Segurança): Vamos primeiro verificar quem seria deletado.
+db.funcionarios.find({ ativo: false })
+
+// Passo 2 (Execução): Se a lista estiver correta, executamos a deleção.
+db.funcionamentos.deleteMany({ ativo: false })
+
+O estagiário "Fabio Martins" (que você adicionou) concluiu seu período de estágio. O RH pediu para remover seu registro do sistema.
+db.funcionarios.deleteOne({ nome: "Fabio Martins" })
+
+db.funcionarios.countDocuments({ nome: "Fabio Martins" }) (deve retornar 0)
+
+
+
+Exercícios
+Exercício 1: Mudança de Departamento
+
+Solicitação: A funcionária "Carla Dias" foi transferida para o departamento de "Operações". Atualize seu documento.
+db.funcionarios.updateOne({ nome: "Carla Dias" }, { $set: { departamento: "Operações" } })
+
+Solicitação: O "André Marques" fez um workshop de "GraphQL" e precisa que essa habilidade seja adicionada ao seu perfil.
+db.funcionarios.updateOne({ nome: "André Marques" }, { $push: { habilidades: "GraphQL" } })
+
+Verificando
+db.funcionarios.findOne({ nome: "André Marques" }, { habilidades: 1 })
+
+
+Atualizar Telefone de Contato (Sub-documento)
+
+Solicitação: O telefone da "Carla Dias" mudou para "11-99999-0000". Atualize esta informação.
+db.funcionarios.updateOne({ nome: "Carla Dias" }, { $set: { "contato.telefone": "11-99999-0000" } })
+
+Como Verificar: db.funcionarios.findOne({ nome: "Carla Dias" }, { contato: 1 })
+
+
+O "Daniel Farias" obteve uma nova certificação: "Data Scientist Professional", em 2024. Adicione esta certificação à sua lista.
+db.funcionarios.updateOne(
+  { nome: "Daniel Farias" },
+  { $push: { certificacoes: { nome: "Data Scientist Professional", ano: 2024 } } }
+)
+
+
+A diretoria anunciou um reajuste de 10% no salário de todos os funcionários ativos. Aplique este aumento.
+// Usamos um pipeline de atualização para calcular o novo valor baseado no valor antigo.
+db.funcionarios.updateMany(
+  { ativo: true },
+  [ { $set: { salario: { $round: [ { $multiply: ["$salario", 1.10] }, 2 ] } } } ]
+)
+
+
+
+
+
+
+-- FIND
+
+
+Encontre todos os funcionários com mais de 30 anos.
+db.funcionarios.find({ idade: { $gt: 30 } })
+
+Encontre todos os funcionários com salário entre R$ 7.000 e R$ 9.000.
+db.funcionarios.find({ salario: { $gte: 7000, $lte: 9000 } })
+
+Encontre todos os funcionários cujo nome começa com a letra "A".
+db.funcionarios.find({ nome: { $regex: /^A/ } })
+
+
+Encontre todos os funcionários que têm "Desenvolvedor" no cargo.
+db.funcionarios.find({ cargo: { $regex: /Desenvolvedor/i } })
+
+
+Encontre todos os funcionários que possuem a habilidade "React".
+db.funcionarios.find({ habilidades: "React" })
+
+Encontre todos os funcionários que possuem as habilidades "AWS" e "Python".
+db.funcionarios.find({ habilidades: { $all: ["AWS", "Python"] } })
+
+Encontre o funcionário cujo e-mail é "carla.dias@empresa.com".
+db.funcionarios.find({ "contato.email": "carla.dias@empresa.com" })
+
+
+Encontre todos os funcionários do departamento de "Tecnologia" que também estão com o status ativo.
+db.funcionarios.find({ departamento: "Tecnologia", ativo: true })
+
+Encontre todos os funcionários que são do departamento de "RH" OU do departamento de "Projetos".
+db.funcionarios.find({
+  $or: [
+    { departamento: "RH" },
+    { departamento: "Projetos" }
+  ]
+})
+
+
+Encontre todos os funcionários do departamento de "Tecnologia" que OU têm mais de 30 anos OU possuem a habilidade "AWS".
+db.funcionarios.find({
+  departamento: "Tecnologia", // Condição AND
+  $or: [ // Condições OR
+    { idade: { $gt: 30 } },
+    { habilidades: "AWS" }
+  ]
+})
+
+
+Liste todos os funcionários, mas mostre apenas o nome e o cargo de cada um.
+db.funcionarios.find(
+  {}, // O primeiro {} vazio significa "sem filtro", ou seja, todos os documentos.
+  { nome: 1, cargo: 1, _id: 0 } // O segundo {} é a projeção.
+)
+
+
+Liste todos os funcionários ordenados por salário, do menor para o maior.
+db.funcionarios.find().sort({ salario: 1 })
+
+Liste os funcionários do departamento de "Tecnologia" ordenados por data de contratação, do mais recente para o mais antigo.
+db.funcionarios.find({ departamento: "Tecnologia" }).sort({ data_contratacao: -1 })
+
+Liste apenas os 3 funcionários com os maiores salários.
+db.funcionarios.find().sort({ salario: -1 }).limit(3)
+
+Encontre todos os funcionários que possuem um número de telefone cadastrado.
+db.funcionarios.find({ "contato.telefone": { $exists: true } })
+
+Encontre todos os funcionários cujo campo salario é do tipo double (número de ponto flutuante).
+db.funcionarios.find({ salario: { $type: "double" } })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

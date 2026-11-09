@@ -1,0 +1,236 @@
+use empresa_tech
+
+// --- Cadastro inicial (rodar uma vez) ---
+db.funcionarios.insertMany([
+  {
+    nome: "Ana Silva",
+    idade: 28,
+    cargo: "Desenvolvedora Frontend",
+    departamento: "Tecnologia",
+    salario: 7500.00,
+    data_contratacao: new Date("2021-03-15"),
+    ativo: true,
+    habilidades: ["JavaScript", "React", "CSS", "HTML"],
+    contato: {
+      email: "ana.silva@empresa.com",
+      telefone: "11-98765-4321"
+    }
+  },
+  {
+    nome: "Bruno Costa",
+    idade: 35,
+    cargo: "Desenvolvedor Backend",
+    departamento: "Tecnologia",
+    salario: 9000.00,
+    data_contratacao: new Date("2019-07-20"),
+    ativo: true,
+    habilidades: ["Java", "Spring", "Docker", "PostgreSQL"],
+    contato: { email: "bruno.costa@empresa.com" }
+  },
+  {
+    nome: "Carla Dias",
+    idade: 42,
+    cargo: "Gerente de Projetos",
+    departamento: "Projetos",
+    salario: 12500.00,
+    data_contratacao: new Date("2017-01-10"),
+    ativo: true,
+    habilidades: ["Scrum", "Jira", "Gestão de Riscos"],
+    contato: {
+      email: "carla.dias@empresa.com",
+      telefone: "11-91234-5678"
+    }
+  },
+  {
+    nome: "Daniel Farias",
+    idade: 25,
+    cargo: "Analista de Dados",
+    departamento: "BI",
+    salario: 6000.00,
+    data_contratacao: new Date("2022-11-01"),
+    ativo: true,
+    habilidades: ["SQL", "Python", "PowerBI", "AWS"],
+    contato: { email: "daniel.farias@empresa.com" }
+  },
+  {
+    nome: "Eduarda Lima",
+    idade: 31,
+    cargo: "Analista de RH",
+    departamento: "RH",
+    salario: 5500.00,
+    data_contratacao: new Date("2020-05-30"),
+    ativo: false,
+    habilidades: ["Recrutamento", "Entrevistas", "Legislação"],
+    contato: {
+      email: "eduarda.lima@empresa.com",
+      telefone: "11-98888-7777"
+    }
+  },
+  {
+    nome: "André Marques",
+    idade: 29,
+    cargo: "Desenvolvedor Fullstack",
+    departamento: "Tecnologia",
+    salario: 8500.00,
+    data_contratacao: new Date("2023-02-18"),
+    ativo: true,
+    habilidades: ["Node.js", "React", "MongoDB", "AWS"],
+    contato: { email: "andre.marques@empresa.com" }
+  }
+])
+
+// --- Novo estagiário ---
+db.funcionarios.insertOne({
+  nome: "Fabio Martins",
+  cargo: "Estagiário",
+  departamento: "Tecnologia",
+  salario: 2500.00,
+  data_contratacao: new Date(),
+  ativo: true,
+  habilidades: ["HTML", "CSS"]
+})
+
+db.funcionarios.findOne({ nome: "Fabio Martins" })
+
+// --- Promoção Daniel ($set) ---
+db.funcionarios.updateOne(
+  { nome: "Daniel Farias" },
+  { $set: { cargo: "Cientista de Dados", salario: 7800.00 } }
+)
+
+db.funcionarios.findOne({ nome: "Daniel Farias" })
+
+// --- Remover telefone Ana ($unset) ---
+db.funcionarios.updateOne(
+  { nome: "Ana Silva" },
+  { $unset: { "contato.telefone": "" } }
+)
+
+db.funcionarios.findOne({ nome: "Ana Silva" })
+
+// --- Bônus Tecnologia ($inc) ---
+db.funcionarios.updateMany(
+  { departamento: "Tecnologia" },
+  { $inc: { salario: 500 } }
+)
+
+db.funcionarios.find(
+  { departamento: "Tecnologia" },
+  { nome: 1, salario: 1, _id: 0 }
+)
+
+// --- TypeScript na Ana ($push) ---
+db.funcionarios.updateOne(
+  { nome: "Ana Silva" },
+  { $push: { habilidades: "TypeScript" } }
+)
+
+db.funcionarios.findOne({ nome: "Ana Silva" }, { habilidades: 1, _id: 0 })
+
+// --- Remover Jira da Carla ($pull) ---
+db.funcionarios.updateOne(
+  { nome: "Carla Dias" },
+  { $pull: { habilidades: "Jira" } }
+)
+
+db.funcionarios.findOne({ nome: "Carla Dias" }, { habilidades: 1, _id: 0 })
+
+// --- Desligamento Eduarda ---
+db.funcionarios.deleteOne({ nome: "Eduarda Lima" })
+
+db.funcionarios.findOne({ nome: "Eduarda Lima" })
+
+// --- Limpeza ativo: false ---
+db.funcionarios.find({ ativo: false })
+
+db.funcionarios.deleteMany({ ativo: false })
+
+// --- Remover Fabio ---
+db.funcionarios.deleteOne({ nome: "Fabio Martins" })
+
+db.funcionarios.countDocuments({ nome: "Fabio Martins" })
+
+// ========== EXERCÍCIOS ==========
+
+// Exercício 1 - Carla para Operações
+db.funcionarios.updateOne(
+  { nome: "Carla Dias" },
+  { $set: { departamento: "Operações" } }
+)
+
+// Exercício 2 - GraphQL no André
+db.funcionarios.updateOne(
+  { nome: "André Marques" },
+  { $push: { habilidades: "GraphQL" } }
+)
+
+db.funcionarios.findOne({ nome: "André Marques" }, { habilidades: 1 })
+
+// Exercício 3 - Telefone da Carla
+db.funcionarios.updateOne(
+  { nome: "Carla Dias" },
+  { $set: { "contato.telefone": "11-99999-0000" } }
+)
+
+db.funcionarios.findOne({ nome: "Carla Dias" }, { contato: 1 })
+
+// Exercício 4 - Certificação do Daniel
+db.funcionarios.updateOne(
+  { nome: "Daniel Farias" },
+  {
+    $push: {
+      certificacoes: { nome: "Data Scientist Professional", ano: 2024 }
+    }
+  }
+)
+
+// Exercício 5 - Reajuste 10% ativos
+db.funcionarios.updateMany(
+  { ativo: true },
+  [
+    {
+      $set: {
+        salario: { $round: [{ $multiply: ["$salario", 1.10] }, 2] }
+      }
+    }
+  ]
+)
+
+// ========== FIND ==========
+
+db.funcionarios.find({ idade: { $gt: 30 } })
+
+db.funcionarios.find({ salario: { $gte: 7000, $lte: 9000 } })
+
+db.funcionarios.find({ nome: { $regex: /^A/ } })
+
+db.funcionarios.find({ cargo: { $regex: /Desenvolvedor/i } })
+
+db.funcionarios.find({ habilidades: "React" })
+
+db.funcionarios.find({ habilidades: { $all: ["AWS", "Python"] } })
+
+db.funcionarios.find({ "contato.email": "carla.dias@empresa.com" })
+
+db.funcionarios.find({ departamento: "Tecnologia", ativo: true })
+
+db.funcionarios.find({
+  $or: [{ departamento: "RH" }, { departamento: "Projetos" }]
+})
+
+db.funcionarios.find({
+  departamento: "Tecnologia",
+  $or: [{ idade: { $gt: 30 } }, { habilidades: "AWS" }]
+})
+
+db.funcionarios.find({}, { nome: 1, cargo: 1, _id: 0 })
+
+db.funcionarios.find().sort({ salario: 1 })
+
+db.funcionarios.find({ departamento: "Tecnologia" }).sort({ data_contratacao: -1 })
+
+db.funcionarios.find().sort({ salario: -1 }).limit(3)
+
+db.funcionarios.find({ "contato.telefone": { $exists: true } })
+
+db.funcionarios.find({ salario: { $type: "double" } })
