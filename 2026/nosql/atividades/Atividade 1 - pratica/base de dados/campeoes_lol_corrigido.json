@@ -1,0 +1,752 @@
+[
+  {
+    "_id": 1,
+    "name": "Annie",
+    "title": "a Criança Sombria",
+    "role": "Mago",
+    "secondary_role": "Suporte",
+    "region": "Noxus",
+    "stats": {
+      "hp": 560,
+      "attack": 50,
+      "armor": 23,
+      "move_speed": 335
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 11,
+    "name": "Master Yi",
+    "title": "o Espadachim Wuju",
+    "role": "Lutador",
+    "secondary_role": "Assassino",
+    "region": "Ionia",
+    "stats": {
+      "hp": 640,
+      "attack": 65,
+      "armor": 33,
+      "move_speed": 355
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 12,
+    "name": "Alistar",
+    "title": "o Minotauro",
+    "role": "Tanque",
+    "secondary_role": "Suporte",
+    "region": "Noxus",
+    "stats": {
+      "hp": 685,
+      "attack": 62,
+      "armor": 40,
+      "move_speed": 335
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 16,
+    "name": "Soraka",
+    "title": "a Filha das Estrelas",
+    "role": "Suporte",
+    "secondary_role": "Mago",
+    "region": "Targon",
+    "stats": {
+      "hp": 605,
+      "attack": 50,
+      "armor": 32,
+      "move_speed": 325
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 17,
+    "name": "Teemo",
+    "title": "o Explorador Veloz",
+    "role": "Atirador",
+    "secondary_role": "Mago",
+    "region": "Bandópolis",
+    "stats": {
+      "hp": 615,
+      "attack": 54,
+      "armor": 24,
+      "move_speed": 330
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 21,
+    "name": "Miss Fortune",
+    "title": "a Caçadora de Recompensas",
+    "role": "Atirador",
+    "secondary_role": "Mago",
+    "region": "Águas de Sentina",
+    "stats": {
+      "hp": 625,
+      "attack": 55,
+      "armor": 25,
+      "move_speed": 325
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 22,
+    "name": "Ashe",
+    "title": "a Arqueira do Gelo",
+    "role": "Atirador",
+    "secondary_role": "Suporte",
+    "region": "Freljord",
+    "stats": {
+      "hp": 610,
+      "attack": 59,
+      "armor": 26,
+      "move_speed": 325
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 24,
+    "name": "Jax",
+    "title": "o Grão-Mestre das Armas",
+    "role": "Lutador",
+    "secondary_role": null,
+    "region": "Icathia",
+    "stats": {
+      "hp": 650,
+      "attack": 68,
+      "armor": 36,
+      "move_speed": 350
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 25,
+    "name": "Morgana",
+    "title": "a Caída",
+    "role": "Suporte",
+    "secondary_role": "Mago",
+    "region": "Demacia",
+    "stats": {
+      "hp": 630,
+      "attack": 56,
+      "armor": 25,
+      "move_speed": 335
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 36,
+    "name": "Dr. Mundo",
+    "title": "o Louco de Zaun",
+    "role": "Tanque",
+    "secondary_role": "Lutador",
+    "region": "Zaun",
+    "stats": {
+      "hp": 640,
+      "attack": 61,
+      "armor": 32,
+      "move_speed": 345
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 39,
+    "name": "Irelia",
+    "title": "a Dançarina das Lâminas",
+    "role": "Lutador",
+    "secondary_role": "Assassino",
+    "region": "Ionia",
+    "stats": {
+      "hp": 630,
+      "attack": 65,
+      "armor": 36,
+      "move_speed": 335
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 40,
+    "name": "Janna",
+    "title": "a Fúria da Tormenta",
+    "role": "Suporte",
+    "secondary_role": "Mago",
+    "region": "Zaun",
+    "stats": {
+      "hp": 570,
+      "attack": 47,
+      "armor": 28,
+      "move_speed": 325
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 45,
+    "name": "Veigar",
+    "title": "o Pequeno Mestre do Mal",
+    "role": "Mago",
+    "secondary_role": null,
+    "region": "Bandópolis",
+    "stats": {
+      "hp": 580,
+      "attack": 52,
+      "armor": 18,
+      "move_speed": 340
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 51,
+    "name": "Caitlyn",
+    "title": "a Xerife de Piltover",
+    "role": "Atirador",
+    "secondary_role": null,
+    "region": "Piltover",
+    "stats": {
+      "hp": 580,
+      "attack": 62,
+      "armor": 27,
+      "move_speed": 325
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 53,
+    "name": "Blitzcrank",
+    "title": "o Grande Golem a Vapor",
+    "role": "Tanque",
+    "secondary_role": "Suporte",
+    "region": "Zaun",
+    "stats": {
+      "hp": 600,
+      "attack": 62,
+      "armor": 37,
+      "move_speed": 325
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 54,
+    "name": "Malphite",
+    "title": "o Fragmento do Monolito",
+    "role": "Tanque",
+    "secondary_role": "Mago",
+    "region": "Ixtal",
+    "stats": {
+      "hp": 665,
+      "attack": 62,
+      "armor": 40,
+      "move_speed": 335
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 55,
+    "name": "Katarina",
+    "title": "a Lâmina Sinistra",
+    "role": "Assassino",
+    "secondary_role": "Mago",
+    "region": "Noxus",
+    "stats": {
+      "hp": 672,
+      "attack": 58,
+      "armor": 32,
+      "move_speed": 335
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 64,
+    "name": "Lee Sin",
+    "title": "o Monge Cego",
+    "role": "Lutador",
+    "secondary_role": "Assassino",
+    "region": "Ionia",
+    "stats": {
+      "hp": 645,
+      "attack": 66,
+      "armor": 36,
+      "move_speed": 345
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 67,
+    "name": "Vayne",
+    "title": "a Caçadora Noturna",
+    "role": "Atirador",
+    "secondary_role": "Assassino",
+    "region": "Demacia",
+    "stats": {
+      "hp": 580,
+      "attack": 60,
+      "armor": 23,
+      "move_speed": 330
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 84,
+    "name": "Akali",
+    "title": "a Assassina Renegada",
+    "role": "Assassino",
+    "secondary_role": null,
+    "region": "Ionia",
+    "stats": {
+      "hp": 600,
+      "attack": 62,
+      "armor": 23,
+      "move_speed": 345
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 86,
+    "name": "Garen",
+    "title": "o Poder de Demacia",
+    "role": "Lutador",
+    "secondary_role": "Tanque",
+    "region": "Demacia",
+    "stats": {
+      "hp": 690,
+      "attack": 69,
+      "armor": 38,
+      "move_speed": 340
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 89,
+    "name": "Leona",
+    "title": "a Alvorada Radiante",
+    "role": "Tanque",
+    "secondary_role": "Suporte",
+    "region": "Targon",
+    "stats": {
+      "hp": 646,
+      "attack": 60,
+      "armor": 43,
+      "move_speed": 335
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 92,
+    "name": "Riven",
+    "title": "a Exilada",
+    "role": "Lutador",
+    "secondary_role": "Assassino",
+    "region": "Noxus",
+    "stats": {
+      "hp": 630,
+      "attack": 64,
+      "armor": 33,
+      "move_speed": 340
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 99,
+    "name": "Lux",
+    "title": "a Dama da Luz",
+    "role": "Mago",
+    "secondary_role": "Suporte",
+    "region": "Demacia",
+    "stats": {
+      "hp": 580,
+      "attack": 54,
+      "armor": 21,
+      "move_speed": 330
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 103,
+    "name": "Ahri",
+    "title": "a Raposa de Nove Caudas",
+    "role": "Mago",
+    "secondary_role": "Assassino",
+    "region": "Ionia",
+    "stats": {
+      "hp": 590,
+      "attack": 53,
+      "armor": 21,
+      "move_speed": 330
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 111,
+    "name": "Nautilus",
+    "title": "o Titã das Profundezas",
+    "role": "Tanque",
+    "secondary_role": "Suporte",
+    "region": "Águas de Sentina",
+    "stats": {
+      "hp": 646,
+      "attack": 58,
+      "armor": 39,
+      "move_speed": 325
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 114,
+    "name": "Fiora",
+    "title": "a Grande Duelista",
+    "role": "Lutador",
+    "secondary_role": "Assassino",
+    "region": "Demacia",
+    "stats": {
+      "hp": 620,
+      "attack": 66,
+      "armor": 33,
+      "move_speed": 345
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 117,
+    "name": "Lulu",
+    "title": "a Fada Feiticeira",
+    "role": "Suporte",
+    "secondary_role": "Mago",
+    "region": "Bandópolis",
+    "stats": {
+      "hp": 565,
+      "attack": 47,
+      "armor": 26,
+      "move_speed": 330
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 122,
+    "name": "Darius",
+    "title": "a Mão de Noxus",
+    "role": "Lutador",
+    "secondary_role": "Tanque",
+    "region": "Noxus",
+    "stats": {
+      "hp": 652,
+      "attack": 64,
+      "armor": 37,
+      "move_speed": 340
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 131,
+    "name": "Diana",
+    "title": "o Escárnio da Lua",
+    "role": "Lutador",
+    "secondary_role": "Assassino",
+    "region": "Targon",
+    "stats": {
+      "hp": 640,
+      "attack": 57,
+      "armor": 31,
+      "move_speed": 345
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 141,
+    "name": "Kayn",
+    "title": "o Ceifador das Sombras",
+    "role": "Lutador",
+    "secondary_role": "Assassino",
+    "region": "Ionia",
+    "stats": {
+      "hp": 655,
+      "attack": 68,
+      "armor": 38,
+      "move_speed": 340
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 157,
+    "name": "Yasuo",
+    "title": "o Imperdoável",
+    "role": "Lutador",
+    "secondary_role": "Assassino",
+    "region": "Ionia",
+    "stats": {
+      "hp": 590,
+      "attack": 60,
+      "armor": 32,
+      "move_speed": 345
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 201,
+    "name": "Braum",
+    "title": "o Coração de Freljord",
+    "role": "Tanque",
+    "secondary_role": "Suporte",
+    "region": "Freljord",
+    "stats": {
+      "hp": 610,
+      "attack": 55,
+      "armor": 35,
+      "move_speed": 335
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 222,
+    "name": "Jinx",
+    "title": "o Gatilho Desenfreado",
+    "role": "Atirador",
+    "secondary_role": null,
+    "region": "Zaun",
+    "stats": {
+      "hp": 630,
+      "attack": 59,
+      "armor": 26,
+      "move_speed": 325
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 233,
+    "name": "Briar",
+    "title": "a Fome Contida",
+    "role": "Lutador",
+    "secondary_role": "Assassino",
+    "region": "Noxus",
+    "stats": {
+      "hp": 625,
+      "attack": 60,
+      "armor": 30,
+      "move_speed": 340
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 236,
+    "name": "Lucian",
+    "title": "o Purificador",
+    "role": "Atirador",
+    "secondary_role": "Assassino",
+    "region": "Demacia",
+    "stats": {
+      "hp": 641,
+      "attack": 60,
+      "armor": 28,
+      "move_speed": 335
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 238,
+    "name": "Zed",
+    "title": "o Mestre das Sombras",
+    "role": "Assassino",
+    "secondary_role": null,
+    "region": "Ionia",
+    "stats": {
+      "hp": 654,
+      "attack": 63,
+      "armor": 32,
+      "move_speed": 345
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 245,
+    "name": "Ekko",
+    "title": "o Rapaz que Estilhaçou o Tempo",
+    "role": "Assassino",
+    "secondary_role": "Mago",
+    "region": "Zaun",
+    "stats": {
+      "hp": 655,
+      "attack": 58,
+      "armor": 32,
+      "move_speed": 340
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 254,
+    "name": "Vi",
+    "title": "a Defensora de Piltover",
+    "role": "Lutador",
+    "secondary_role": "Assassino",
+    "region": "Piltover",
+    "stats": {
+      "hp": 655,
+      "attack": 61,
+      "armor": 30,
+      "move_speed": 340
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 266,
+    "name": "Aatrox",
+    "title": "a Espada Darkin",
+    "role": "Lutador",
+    "secondary_role": null,
+    "region": "Shurima",
+    "stats": {
+      "hp": 650,
+      "attack": 60,
+      "armor": 38,
+      "move_speed": 345
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 412,
+    "name": "Thresh",
+    "title": "o Guardião das Correntes",
+    "role": "Suporte",
+    "secondary_role": "Tanque",
+    "region": "Ilha das Sombras",
+    "stats": {
+      "hp": 620,
+      "attack": 56,
+      "armor": 33,
+      "move_speed": 330
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 555,
+    "name": "Pyke",
+    "title": "o Estripador das Águas Sangrentas",
+    "role": "Suporte",
+    "secondary_role": "Assassino",
+    "region": "Águas de Sentina",
+    "stats": {
+      "hp": 670,
+      "attack": 62,
+      "armor": 37,
+      "move_speed": 330
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 711,
+    "name": "Vex",
+    "title": "a Melancolista",
+    "role": "Mago",
+    "secondary_role": null,
+    "region": "Ilha das Sombras",
+    "stats": {
+      "hp": 590,
+      "attack": 54,
+      "armor": 23,
+      "move_speed": 335
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 777,
+    "name": "Yone",
+    "title": "o Inesquecido",
+    "role": "Lutador",
+    "secondary_role": "Assassino",
+    "region": "Ionia",
+    "stats": {
+      "hp": 620,
+      "attack": 62,
+      "armor": 33,
+      "move_speed": 345
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 875,
+    "name": "Sett",
+    "title": "o Chefe",
+    "role": "Lutador",
+    "secondary_role": "Tanque",
+    "region": "Ionia",
+    "stats": {
+      "hp": 670,
+      "attack": 60,
+      "armor": 33,
+      "move_speed": 340
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 893,
+    "name": "Aurora",
+    "title": "a Bruxa Entre Mundos",
+    "role": "Mago",
+    "secondary_role": "Assassino",
+    "region": "Freljord",
+    "stats": {
+      "hp": 607,
+      "attack": 53,
+      "armor": 23,
+      "move_speed": 335
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 897,
+    "name": "K'Sante",
+    "title": "o Orgulho de Nazumah.",
+    "role": "Tanque",
+    "secondary_role": "Lutador",
+    "region": "Shurima",
+    "stats": {
+      "hp": 625,
+      "attack": 64,
+      "armor": 36,
+      "move_speed": 330
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 902,
+    "name": "Milio",
+    "title": "A Chama Gentil",
+    "role": "Suporte",
+    "secondary_role": "Mago",
+    "region": "Ixtal",
+    "stats": {
+      "hp": 560,
+      "attack": 48,
+      "armor": 26,
+      "move_speed": 330
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 910,
+    "name": "Hwei",
+    "title": "o Visionário",
+    "role": "Mago",
+    "secondary_role": "Suporte",
+    "region": "Ionia",
+    "stats": {
+      "hp": 580,
+      "attack": 54,
+      "armor": 21,
+      "move_speed": 330
+    },
+    "data_dragon_version": "16.20.1"
+  },
+  {
+    "_id": 950,
+    "name": "Naafiri",
+    "title": "Fera das Cem Mordidas",
+    "role": "Assassino",
+    "secondary_role": "Lutador",
+    "region": "Shurima",
+    "stats": {
+      "hp": 610,
+      "attack": 55,
+      "armor": 28,
+      "move_speed": 340
+    },
+    "data_dragon_version": "16.20.1"
+  }
+]

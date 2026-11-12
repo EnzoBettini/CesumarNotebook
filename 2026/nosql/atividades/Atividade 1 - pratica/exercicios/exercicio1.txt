@@ -1,0 +1,21 @@
+db.campeoes.aggregate([
+    {
+        $lookup: {
+            from: "regioes_info",
+            localField: "region",
+            foreignField: "_id",
+            as: "regiao"
+        }
+    },
+    {$unwind: "$regiao"},
+    {
+        $project: {
+            _id: 0,
+            nome: "$name",
+            regiao: 1,
+            lider: "$name",
+            caracteristica: "$regiao.identity"
+        }
+    },
+    {$sort: "$regiao"}
+])

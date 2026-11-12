@@ -1,0 +1,13 @@
+{
+  "pokemon_count": 800,
+  "champion_count": 50,
+  "data_dragon_version": "16.20.1",
+  "files": [
+    "pokemon_corrigido.json",
+    "geracoes_pokemon.json",
+    "faixas_ataque_pokemon.json",
+    "campeoes_lol_corrigido.json",
+    "regioes_lol.json",
+    "faixas_vida_lol.json"
+  ]
+}

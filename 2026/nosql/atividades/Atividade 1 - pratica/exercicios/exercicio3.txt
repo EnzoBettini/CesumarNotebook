@@ -1,0 +1,32 @@
+db.pokemon.aggregate([
+  {
+    $addFields: {
+      classe: {
+        $switch: {
+          branches: [
+            { case: { $lt: ["$attack", 50] }, then: "Fraco" },
+            { case: { $lt: ["$attack", 80] }, then: "Médio" },
+            { case: { $lt: ["$attack", 100] }, then: "Forte" }
+          ],
+          default: "Lendário"
+        }
+      }
+    }
+  },
+  {
+    $group: {
+      _id: "$classe",
+      total: { $sum: 1 },
+      mediaHP: { $avg: "$hp" }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      classe: "$_id",
+      total: 1,
+      mediaHP: { $round: ["$mediaHP", 1] }
+    }
+  },
+  { $sort: { classe: 1 } }
+])

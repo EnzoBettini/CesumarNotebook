@@ -1,0 +1,31 @@
+db.campeoes.aggregate([
+  {
+    $addFields: {
+      classe: {
+        $switch: {
+          branches: [
+            { case: { $lt: ["$stats.hp", 550] }, then: "Frágil" },
+            { case: { $lt: ["$stats.hp", 600] }, then: "Médio" },
+            { case: { $lt: ["$stats.hp", 650] }, then: "Tanque" }
+          ],
+          default: "Super Tanque"
+        }
+      }
+    }
+  },
+  {
+    $group: {
+      _id: "$classe",
+      total: { $sum: 1 },
+      mediaDano: { $avg: "$stats.attack" }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      classe: "$_id",
+      total: 1,
+      mediaDano: { $round: ["$mediaDano", 1] }
+    }
+  }
+])

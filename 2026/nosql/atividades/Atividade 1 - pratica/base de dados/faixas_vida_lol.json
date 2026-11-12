@@ -1,0 +1,30 @@
+[
+  {
+    "_id": 1,
+    "min": 0,
+    "max": 550,
+    "class": "Baixa",
+    "description": "Vida base menor que 550"
+  },
+  {
+    "_id": 2,
+    "min": 550,
+    "max": 600,
+    "class": "Média",
+    "description": "Vida base de 550 a 599"
+  },
+  {
+    "_id": 3,
+    "min": 600,
+    "max": 650,
+    "class": "Alta",
+    "description": "Vida base de 600 a 649"
+  },
+  {
+    "_id": 4,
+    "min": 650,
+    "max": 1000,
+    "class": "Muito alta",
+    "description": "Vida base a partir de 650"
+  }
+]

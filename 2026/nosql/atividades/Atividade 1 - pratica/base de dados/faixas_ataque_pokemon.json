@@ -1,0 +1,37 @@
+[
+  {
+    "_id": 1,
+    "min": 0,
+    "max": 50,
+    "class": "Baixo",
+    "tip": "Ataque base menor que 50"
+  },
+  {
+    "_id": 2,
+    "min": 50,
+    "max": 80,
+    "class": "Moderado",
+    "tip": "Ataque base de 50 a 79"
+  },
+  {
+    "_id": 3,
+    "min": 80,
+    "max": 110,
+    "class": "Alto",
+    "tip": "Ataque base de 80 a 109"
+  },
+  {
+    "_id": 4,
+    "min": 110,
+    "max": 140,
+    "class": "Muito alto",
+    "tip": "Ataque base de 110 a 139"
+  },
+  {
+    "_id": 5,
+    "min": 140,
+    "max": 1000,
+    "class": "Extremo",
+    "tip": "Ataque base a partir de 140"
+  }
+]

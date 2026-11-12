@@ -1,0 +1,52 @@
+db.campeoes.aggregate([
+  {
+    $bucket: {
+      groupBy: "$stats.hp",
+      boundaries: [0, 550, 600, 650, 1000],
+      default: 1000,
+      output: {
+        total: { $sum: 1 },
+        nomes: { $push: "$name" }
+      }
+    }
+  },
+  {
+    $lookup: {
+      from: "faixas_vida",
+      let: { limite: "$_id" },
+      pipeline: [
+        {
+          $match: {
+            $expr: {
+              $or: [
+                {
+                  $and: [
+                    { $lte: ["$min", "$$limite"] },
+                    { $gt: ["$max", "$$limite"] }
+                  ]
+                },
+                {
+                  $and: [
+                    { $eq: ["$$limite", 1000] },
+                    { $eq: ["$min", 650] }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      as: "faixa"
+    }
+  },
+  { $unwind: "$faixa" },
+  {
+    $project: {
+      _id: 0,
+      classe: "$faixa.class",
+      total: 1,
+      estrategia: "$faixa.description",
+      nomes: { $slice: ["$nomes", 3] }
+    }
+  }
+])

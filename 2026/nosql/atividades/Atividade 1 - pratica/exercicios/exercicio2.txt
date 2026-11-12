@@ -1,0 +1,22 @@
+db.pokemon.aggregate([
+    {
+        $lookup: {
+            from: "geracoes_pokemon",
+            localField: "generation",
+            foreignField: "_id",
+            as: "gen"
+        }
+    },
+    { $unwind: "$generation"},
+    {
+        $project: {
+            _id: 0,
+            region: 1,
+            generation: 1,
+            nomeGeracao: "$gen.region",
+            ano: "$gen.region",
+            lendario: "$legendary"
+        }
+    },
+    { $limit: 10}
+])

@@ -1,0 +1,58 @@
+[
+  {
+    "_id": 1,
+    "region": "Kanto",
+    "years": "1996–1999",
+    "first_id": 1,
+    "last_id": 151,
+    "new_species": 151
+  },
+  {
+    "_id": 2,
+    "region": "Johto",
+    "years": "1999–2002",
+    "first_id": 152,
+    "last_id": 251,
+    "new_species": 100
+  },
+  {
+    "_id": 3,
+    "region": "Hoenn",
+    "years": "2002–2006",
+    "first_id": 252,
+    "last_id": 386,
+    "new_species": 135
+  },
+  {
+    "_id": 4,
+    "region": "Sinnoh",
+    "years": "2006–2010",
+    "first_id": 387,
+    "last_id": 493,
+    "new_species": 107
+  },
+  {
+    "_id": 5,
+    "region": "Unova",
+    "years": "2010–2013",
+    "first_id": 494,
+    "last_id": 649,
+    "new_species": 156
+  },
+  {
+    "_id": 6,
+    "region": "Kalos",
+    "years": "2013–2016",
+    "first_id": 650,
+    "last_id": 721,
+    "new_species": 72
+  },
+  {
+    "_id": 7,
+    "region": "Alola",
+    "years": "2016–2019",
+    "first_id": 722,
+    "last_id": 809,
+    "new_species": 88
+  }
+]

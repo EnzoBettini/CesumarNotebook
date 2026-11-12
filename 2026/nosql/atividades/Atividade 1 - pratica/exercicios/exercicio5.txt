@@ -1,0 +1,40 @@
+db.pokemon.aggregate([
+  {
+    $bucket: {
+      groupBy: "$attack",
+      boundaries: [0, 50, 80, 100, 200],
+      default: 200,
+      output: {
+        total: { $sum: 1 },
+        mediaHP: { $avg: "$hp" }
+      }
+    }
+  },
+  {
+    $lookup: {
+      from: "faixas_ataque",
+      localField: "_id",
+      foreignField: "_id",
+      as: "infoFaixa"
+    }
+  },
+  {
+    $unwind: "$infoFaixa"
+  },
+  {
+    $project: {
+      _id: 0,
+      faixa_min: "$_id",
+      classe: "$infoFaixa.classe",
+      total: 1,
+      mediaHP: 1,
+      dica: "$infoFaixa.dica",
+      cor: "$infoFaixa.cor"
+    }
+  },
+  {
+    $sort: {
+      faixa_min: 1
+    }
+  }
+])

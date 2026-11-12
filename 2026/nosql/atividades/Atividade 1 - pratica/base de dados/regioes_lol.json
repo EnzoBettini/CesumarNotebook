@@ -1,0 +1,67 @@
+[
+  {
+    "_id": "Águas de Sentina",
+    "identity": "Porto de piratas, caçadores de monstros e mercenários",
+    "climate": "Marítimo"
+  },
+  {
+    "_id": "Bandópolis",
+    "identity": "Lar dos yordles, ligado a portais mágicos",
+    "climate": "Mágico"
+  },
+  {
+    "_id": "Demacia",
+    "identity": "Reino militar que valoriza ordem e tradição",
+    "climate": "Temperado"
+  },
+  {
+    "_id": "Freljord",
+    "identity": "Terras geladas divididas entre tribos",
+    "climate": "Glacial"
+  },
+  {
+    "_id": "Icathia",
+    "identity": "Civilização destruída após contato com o Vazio",
+    "climate": "Ruínas"
+  },
+  {
+    "_id": "Ilha das Sombras",
+    "identity": "Arquipélago tomado pela Névoa Negra",
+    "climate": "Sobrenatural"
+  },
+  {
+    "_id": "Ionia",
+    "identity": "Terras espirituais marcadas pelo equilíbrio entre natureza e magia",
+    "climate": "Variado"
+  },
+  {
+    "_id": "Ixtal",
+    "identity": "Civilização isolada e especializada em magia elemental",
+    "climate": "Tropical"
+  },
+  {
+    "_id": "Noxus",
+    "identity": "Império expansionista que valoriza força e mérito",
+    "climate": "Variado"
+  },
+  {
+    "_id": "Piltover",
+    "identity": "Cidade do progresso, comércio e tecnologia hextec",
+    "climate": "Urbano"
+  },
+  {
+    "_id": "Shurima",
+    "identity": "Antigo império do deserto ligado aos Ascendentes",
+    "climate": "Desértico"
+  },
+  {
+    "_id": "Targon",
+    "identity": "Região montanhosa ligada aos Aspectos celestiais",
+    "climate": "Montanhoso"
+  },
+  {
+    "_id": "Zaun",
+    "identity": "Cidade subterrânea de indústria química e invenção",
+    "climate": "Urbano industrial"
+  }
+]
