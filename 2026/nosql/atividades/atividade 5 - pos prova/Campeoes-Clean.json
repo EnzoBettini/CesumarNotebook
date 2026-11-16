@@ -1,0 +1,852 @@
+[
+  {
+    "nome": "Lux",
+    "titulo": "a Dama da Luz",
+    "funcao": "Mago",
+    "regiao": "Demacia",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 560,
+      "dano_ataque": 54,
+      "velocidade_movimento": 340
+    },
+    "habilidades": [
+      {
+        "nome": "Singularidade Lucente",
+        "tipo": "E"
+      },
+      {
+        "nome": "Centelha Final",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Feiticeira",
+      "Elementalista",
+      "Academia de Batalha"
+    ]
+  },
+  {
+    "nome": "Garen",
+    "titulo": "o Poder de Demacia",
+    "funcao": "Lutador",
+    "regiao": "Demacia",
+    "recurso": "Nenhum",
+    "estatisticas": {
+      "vida": 620,
+      "dano_ataque": 66,
+      "velocidade_movimento": 340
+    },
+    "habilidades": [
+      {
+        "nome": "Golpe Decisivo",
+        "tipo": "Q"
+      },
+      {
+        "nome": "Justiça de Demacia",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Reinos Combatentes",
+      "Deus-Rei"
+    ]
+  },
+  {
+    "nome": "Jinx",
+    "titulo": "o Gatilho Desenfreado",
+    "funcao": "Atirador",
+    "regiao": "Zaun",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 580,
+      "dano_ataque": 59,
+      "velocidade_movimento": 325
+    },
+    "habilidades": [
+      {
+        "nome": "Trocando!",
+        "tipo": "Q"
+      },
+      {
+        "nome": "Super-Mega-Míssil da Morte!",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Odisseia",
+      "Arcane",
+      "Guardiã Estelar"
+    ]
+  },
+  {
+    "nome": "Yasuo",
+    "titulo": "o Imperdoável",
+    "funcao": "Lutador",
+    "regiao": "Ionia",
+    "recurso": "Fluxo",
+    "estatisticas": {
+      "vida": 590,
+      "dano_ataque": 60,
+      "velocidade_movimento": 345
+    },
+    "habilidades": [
+      {
+        "nome": "Tempestade de Aço",
+        "tipo": "Q"
+      },
+      {
+        "nome": "Último Suspiro",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "PROJETO",
+      "Florescer Espiritual"
+    ]
+  },
+  {
+    "nome": "Teemo",
+    "titulo": "o Explorador Veloz",
+    "funcao": "Atirador",
+    "regiao": "Bandle City",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 528,
+      "dano_ataque": 54,
+      "velocidade_movimento": 330
+    },
+    "habilidades": [
+      {
+        "nome": "Tiro Tóxico",
+        "tipo": "E"
+      },
+      {
+        "nome": "Armadilha Venenosa",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Esquadrão Ômega",
+      "Pequeno Demônio"
+    ]
+  },
+  {
+    "nome": "Ashe",
+    "titulo": "a Arqueira do Gelo",
+    "funcao": "Atirador",
+    "regiao": "Freljord",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 570,
+      "dano_ataque": 59,
+      "velocidade_movimento": 325
+    },
+    "habilidades": [
+      {
+        "nome": "Rajada",
+        "tipo": "W"
+      },
+      {
+        "nome": "Flecha de Cristal Encantada",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "PROJETO",
+      "Rainha Cósmica"
+    ]
+  },
+  {
+    "nome": "Blitzcrank",
+    "titulo": "o Grande Golem a Vapor",
+    "funcao": "Suporte",
+    "regiao": "Zaun",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 610,
+      "dano_ataque": 62,
+      "velocidade_movimento": 325
+    },
+    "habilidades": [
+      {
+        "nome": "Puxão Biônico",
+        "tipo": "Q"
+      },
+      {
+        "nome": "Campo Estático",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Certamente não é o Blitzcrank",
+      "Chefão"
+    ]
+  },
+  {
+    "nome": "Darius",
+    "titulo": "a Mão de Noxus",
+    "funcao": "Lutador",
+    "regiao": "Noxus",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 650,
+      "dano_ataque": 64,
+      "velocidade_movimento": 340
+    },
+    "habilidades": [
+      {
+        "nome": "Dizimar",
+        "tipo": "Q"
+      },
+      {
+        "nome": "Guilhotina de Noxus",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Deus-Rei",
+      "Academia de Duelo"
+    ]
+  },
+  {
+    "nome": "Katarina",
+    "titulo": "a Lâmina Sinistra",
+    "funcao": "Assassino",
+    "regiao": "Noxus",
+    "recurso": "Nenhum",
+    "estatisticas": {
+      "vida": 602,
+      "dano_ataque": 58,
+      "velocidade_movimento": 335
+    },
+    "habilidades": [
+      {
+        "nome": "Shunpo",
+        "tipo": "E"
+      },
+      {
+        "nome": "Lótus da Morte",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Reinos Combatentes",
+      "Gatinha"
+    ]
+  },
+  {
+    "nome": "Thresh",
+    "titulo": "o Guardião das Correntes",
+    "funcao": "Suporte",
+    "regiao": "Ilha das Sombras",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 561,
+      "dano_ataque": 56,
+      "velocidade_movimento": 335
+    },
+    "skins": [
+      "Florescer Espiritual",
+      "Dragão de Aço"
+    ]
+  },
+  {
+    "nome": "Leona",
+    "titulo": "a Alvorada Radiante",
+    "funcao": "Suporte",
+    "regiao": "Targon",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 646,
+      "dano_ataque": 60,
+      "velocidade_movimento": 335
+    },
+    "skins": [
+      "PROJETO",
+      "Academia de Batalha"
+    ]
+  },
+  {
+    "nome": "Miss Fortune",
+    "titulo": "a Caçadora de Recompensas",
+    "funcao": "Atirador",
+    "regiao": "Águas de Sentina",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 570,
+      "dano_ataque": 52,
+      "velocidade_movimento": 325
+    },
+    "habilidades": [
+      {
+        "nome": "Chuva de Disparos",
+        "tipo": "E"
+      },
+      {
+        "nome": "Metendo Bala",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Fliperama",
+      "Guardiã Estelar",
+      "Vingadora Exocósmica"
+    ]
+  },
+  {
+    "nome": "Zed",
+    "titulo": "o Mestre das Sombras",
+    "funcao": "Assassino",
+    "regiao": "Ionia",
+    "recurso": "Energia",
+    "estatisticas": {
+      "vida": 584,
+      "dano_ataque": 63,
+      "velocidade_movimento": 345
+    },
+    "habilidades": [
+      {
+        "nome": "Shuriken Laminado",
+        "tipo": "Q"
+      },
+      {
+        "nome": "Marca Fatal",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "PROJETO",
+      "Galante",
+      "Dizimador de Galáxias"
+    ]
+  },
+  {
+    "nome": "Soraka",
+    "titulo": "a Filha das Estrelas",
+    "funcao": "Suporte",
+    "regiao": "Targon",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 529,
+      "dano_ataque": 50,
+      "velocidade_movimento": 325
+    },
+    "habilidades": [
+      {
+        "nome": "Infusão Astral",
+        "tipo": "W"
+      },
+      {
+        "nome": "Desejo",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Guardiã Estelar",
+      "Ceifadora"
+    ]
+  },
+  {
+    "nome": "Malphite",
+    "titulo": "o Fragmento do Monolito",
+    "funcao": "Tanque",
+    "regiao": "Ixtal",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 670,
+      "dano_ataque": 62,
+      "velocidade_movimento": 335
+    },
+    "habilidades": [
+      {
+        "nome": "Fragmento Sísmico",
+        "tipo": "Q"
+      },
+      {
+        "nome": "Força Incontrolável",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Odisseia",
+      "Glacial"
+    ]
+  },
+  {
+    "nome": "Vi",
+    "titulo": "a Defensora de Piltover",
+    "funcao": "Lutador",
+    "regiao": "Piltover",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 645,
+      "dano_ataque": 63,
+      "velocidade_movimento": 340
+    },
+    "habilidades": [
+      {
+        "nome": "Quebra-Cofres",
+        "tipo": "Q"
+      },
+      {
+        "nome": "Saque e Enterrada",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Arcane",
+      "PROJETO"
+    ]
+  },
+  {
+    "nome": "Caitlyn",
+    "titulo": "a Xerife de Piltover",
+    "funcao": "Atirador",
+    "regiao": "Piltover",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 510,
+      "dano_ataque": 62,
+      "velocidade_movimento": 325
+    },
+    "habilidades": [
+      {
+        "nome": "Pacificadora de Piltover",
+        "tipo": "Q"
+      },
+      {
+        "nome": "Ás na Manga",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Arcane",
+      "Caçadora de Cabeças"
+    ]
+  },
+  {
+    "nome": "Morgana",
+    "titulo": "a Caída",
+    "funcao": "Mago",
+    "regiao": "Demacia",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 560,
+      "dano_ataque": 56,
+      "velocidade_movimento": 335
+    },
+    "habilidades": [
+      {
+        "nome": "Ligação das Trevas",
+        "tipo": "Q"
+      },
+      {
+        "nome": "Grilhões da Alma",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Feiticeira",
+      "Imperatriz Lunar"
+    ]
+  },
+  {
+    "nome": "Riven",
+    "titulo": "a Exilada",
+    "funcao": "Lutador",
+    "regiao": "Noxus",
+    "recurso": "Nenhum",
+    "estatisticas": {
+      "vida": 560,
+      "dano_ataque": 64,
+      "velocidade_movimento": 340
+    },
+    "habilidades": [
+      {
+        "nome": "Asas Quebradas",
+        "tipo": "Q"
+      },
+      {
+        "nome": "Lâmina do Exílio",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Coelhinha de Noxus",
+      "Florescer Espiritual"
+    ]
+  },
+  {
+    "nome": "Veigar",
+    "titulo": "o Pequeno Mestre do Mal",
+    "funcao": "Mago",
+    "regiao": "Bandle City",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 505,
+      "dano_ataque": 52,
+      "velocidade_movimento": 340
+    },
+    "habilidades": [
+      {
+        "nome": "Golpe Maligno",
+        "tipo": "Q"
+      },
+      {
+        "nome": "Explosão Primordial",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "Esquadrão Ômega",
+      "Chefão Final"
+    ]
+  },
+  {
+    "nome": "Master Yi",
+    "titulo": "o Espadachim Wuju",
+    "funcao": "Assassino",
+    "regiao": "Ionia",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 599,
+      "dano_ataque": 66,
+      "velocidade_movimento": 355
+    },
+    "habilidades": [
+      {
+        "nome": "Ataque Alpha",
+        "tipo": "Q"
+      },
+      {
+        "nome": "Highlander",
+        "tipo": "R"
+      }
+    ],
+    "skins": [
+      "PROJETO",
+      "Espada Cósmica"
+    ]
+  },
+  {
+    "nome": "Ahri",
+    "titulo": "a Raposa de Nove Caudas",
+    "funcao": "Mago",
+    "regiao": "Ionia",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 570,
+      "dano_ataque": 55,
+      "velocidade_movimento": 330
+    },
+    "skins": [
+      "Estrela do Pop",
+      "Guardiã Estelar"
+    ]
+  },
+  {
+    "nome": "Akali",
+    "titulo": "a Assassina Renegada",
+    "funcao": "Assassino",
+    "regiao": "Ionia",
+    "recurso": "Energia",
+    "estatisticas": {
+      "vida": 575,
+      "dano_ataque": 62,
+      "velocidade_movimento": 345
+    },
+    "skins": [
+      "K/DA",
+      "True Damage"
+    ]
+  },
+  {
+    "nome": "Alistar",
+    "titulo": "o Minotauro",
+    "funcao": "Tanque",
+    "regiao": "Runeterra",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 670,
+      "dano_ataque": 62,
+      "velocidade_movimento": 330
+    },
+    "skins": [
+      "Vaca-mu",
+      "Infernal"
+    ]
+  },
+  {
+    "nome": "Annie",
+    "titulo": "a Criança Sombria",
+    "funcao": "Mago",
+    "regiao": "Noxus",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 524,
+      "dano_ataque": 50,
+      "velocidade_movimento": 335
+    },
+    "skins": [
+      "Gótica",
+      "País das Maravilhas"
+    ]
+  },
+  {
+    "nome": "Braum",
+    "titulo": "o Coração de Freljord",
+    "funcao": "Suporte",
+    "regiao": "Freljord",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 610,
+      "dano_ataque": 55,
+      "velocidade_movimento": 335
+    },
+    "skins": [
+      "Caçador de Dragões",
+      "El Tigre"
+    ]
+  },
+  {
+    "nome": "Diana",
+    "titulo": "o Escárnio da Lua",
+    "funcao": "Lutador",
+    "regiao": "Targon",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 640,
+      "dano_ataque": 57,
+      "velocidade_movimento": 345
+    },
+    "skins": [
+      "Infernal",
+      "Rainha de Batalha"
+    ]
+  },
+  {
+    "nome": "Dr. Mundo",
+    "titulo": "o Louco de Zaun",
+    "funcao": "Tanque",
+    "regiao": "Zaun",
+    "recurso": "Vida",
+    "estatisticas": {
+      "vida": 655,
+      "dano_ataque": 61,
+      "velocidade_movimento": 345
+    },
+    "skins": [
+      "Mundo Mundo",
+      "Diretor Mundo"
+    ]
+  },
+  {
+    "nome": "Ekko",
+    "titulo": "o Rapaz que Estilhaçou o Tempo",
+    "funcao": "Assassino",
+    "regiao": "Zaun",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 585,
+      "dano_ataque": 58,
+      "velocidade_movimento": 340
+    },
+    "skins": [
+      "True Damage",
+      "Travessura na Neve"
+    ]
+  },
+  {
+    "nome": "Fiora",
+    "titulo": "a Grande Duelista",
+    "funcao": "Lutador",
+    "regiao": "Demacia",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 550,
+      "dano_ataque": 68,
+      "velocidade_movimento": 345
+    },
+    "skins": [
+      "PROJETO",
+      "Diretora"
+    ]
+  },
+  {
+    "nome": "Irelia",
+    "titulo": "a Dançarina das Lâminas",
+    "funcao": "Lutador",
+    "regiao": "Ionia",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 580,
+      "dano_ataque": 63,
+      "velocidade_movimento": 335
+    },
+    "skins": [
+      "Lâminas Divinas",
+      "Sentinela"
+    ]
+  },
+  {
+    "nome": "Janna",
+    "titulo": "a Fúria da Tormenta",
+    "funcao": "Suporte",
+    "regiao": "Zaun",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 500,
+      "dano_ataque": 46,
+      "velocidade_movimento": 315
+    },
+    "skins": [
+      "Guardiã Estelar",
+      "Rainha de Batalha"
+    ]
+  },
+  {
+    "nome": "Jax",
+    "titulo": "o Grão-Mestre das Armas",
+    "funcao": "Lutador",
+    "regiao": "Runeterra",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 685,
+      "dano_ataque": 68,
+      "velocidade_movimento": 350
+    },
+    "skins": [
+      "Reino Mecha",
+      "Jaximus"
+    ]
+  },
+  {
+    "nome": "Kayn",
+    "titulo": "o Ceifador das Sombras",
+    "funcao": "Lutador",
+    "regiao": "Ionia",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 655,
+      "dano_ataque": 68,
+      "velocidade_movimento": 340
+    },
+    "skins": [
+      "Odisseia",
+      "Emissário da Escuridão"
+    ]
+  },
+  {
+    "nome": "Lee Sin",
+    "titulo": "o Monge Cego",
+    "funcao": "Lutador",
+    "regiao": "Ionia",
+    "recurso": "Energia",
+    "estatisticas": {
+      "vida": 625,
+      "dano_ataque": 70,
+      "velocidade_movimento": 345
+    },
+    "skins": [
+      "Punhos de Aço",
+      "Nocaute"
+    ]
+  },
+  {
+    "nome": "Lucian",
+    "titulo": "o Purificador",
+    "funcao": "Atirador",
+    "regiao": "Runeterra",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 571,
+      "dano_ataque": 61,
+      "velocidade_movimento": 335
+    },
+    "skins": [
+      "PROJETO",
+      "Mercenário"
+    ]
+  },
+  {
+    "nome": "Lulu",
+    "titulo": "a Fada Feiticeira",
+    "funcao": "Suporte",
+    "regiao": "Bandle City",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 525,
+      "dano_ataque": 47,
+      "velocidade_movimento": 330
+    },
+    "skins": [
+      "Guardiã Estelar",
+      "Inverno Mágico"
+    ]
+  },
+  {
+    "nome": "Nautilus",
+    "titulo": "o Titã das Profundezas",
+    "funcao": "Tanque",
+    "regiao": "Águas de Sentina",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 646,
+      "dano_ataque": 61,
+      "velocidade_movimento": 325
+    },
+    "skins": [
+      "Conquistador",
+      "Vigia"
+    ]
+  },
+  {
+    "nome": "Pyke",
+    "titulo": "o Estripador das Águas Sangrentas",
+    "funcao": "Suporte",
+    "regiao": "Águas de Sentina",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 655,
+      "dano_ataque": 62,
+      "velocidade_movimento": 330
+    },
+    "skins": [
+      "PROJETO",
+      "Sentinela"
+    ]
+  },
+  {
+    "nome": "Sett",
+    "titulo": "o Chefe",
+    "funcao": "Lutador",
+    "regiao": "Ionia",
+    "recurso": "Determinação",
+    "estatisticas": {
+      "vida": 670,
+      "dano_ataque": 60,
+      "velocidade_movimento": 340
+    },
+    "skins": [
+      "Reino Mecha",
+      "Obsidiana"
+    ]
+  },
+  {
+    "nome": "Vayne",
+    "titulo": "a Caçadora Noturna",
+    "funcao": "Atirador",
+    "regiao": "Demacia",
+    "recurso": "Mana",
+    "estatisticas": {
+      "vida": 515,
+      "dano_ataque": 60,
+      "velocidade_movimento": 330
+    },
+    "skins": [
+      "PROJETO",
+      "Caçadora de Dragões"
+    ]
+  }
+]
